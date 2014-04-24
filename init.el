@@ -1,5 +1,15 @@
 ;; init.el --- The new config file
 
+;; Customize variables
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("a774c5551bc56d7a9c362dca4d73a374582caedb110c201a09b410c0ebbb5e70" "fd17ed452917381dfc76ee1af7699c45ca21f182f869085e247e9d5ab7ec812a" default))))
+
 ;;; Disable Toolbars and other ugly stuff
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -25,7 +35,6 @@
 ;; Uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
-
 
 ;;;; Modes
 (show-paren-mode t)
@@ -100,9 +109,8 @@
   (setq ido-use-faces nil))
 
 ;;;; Lispy
-(after 'emacs-lisp-mode
-  (after "lispy-mode-autoloads"
-    (lispy-mode 1)))
+(after "lispy-autoloads"
+  (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1))))
 
 ;;;; Magit
 (after "magit-autoloads"

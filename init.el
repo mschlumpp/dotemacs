@@ -35,7 +35,11 @@
 (setq package-user-dir "~/.emacs.d/elpa")
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
 (package-initialize)
+
+;;;; sublime-themes
+(load-theme 'brin)
 
 (defun mp-install-rad-packages ()
   (interactive)

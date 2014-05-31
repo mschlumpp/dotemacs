@@ -32,7 +32,8 @@
 ;; Increase GC Threshold
 (setq gc-cons-threshold 20000000)
 ;; Fix scrolling
-(setq mouse-wheel-scroll-amount '(5))
+(setq mouse-wheel-scroll-amount '(5)
+      mouse-wheel-progressive-speed nil)
 ;; Don't blink
 (blink-cursor-mode -1)
 ;; Column numbers
@@ -83,6 +84,7 @@
 	  projectile
 	  flx
 	  flx-ido
+	  sublimity
           key-chord)))
 
 (defun mp-install-extra-packages ()
@@ -206,6 +208,11 @@
   (add-hook 'c++-mode-hook #'key-chord-rtags)
   (when 'ace-jump-mode
     (key-chord-ace-jump)))
+
+;;;; Sublimity
+(after "sublimity-autoloads"
+  (require 'sublimity-scroll)
+  (sublimity-mode 1))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

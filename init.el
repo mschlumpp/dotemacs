@@ -70,8 +70,8 @@
   (interactive)
   (package-refresh-contents)
   (mapc #'(lambda (package)
-	   (unless (package-installed-p package)
-	     (package-install package)))
+            (unless (package-installed-p package)
+              (package-install package)))
 	'(ido-ubiquitous
 	  magit
 	  lispy

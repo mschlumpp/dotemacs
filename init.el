@@ -141,7 +141,7 @@
 (after "projectile-autoloads"
   (projectile-global-mode 1)
   (global-set-key (kbd "C-c h") 'projectile-find-file)
-  (setq projectile-completition-system 'grizzl
+  (setq projectile-completion-system 'grizzl
 	projectile-show-paths-function 'projectile-hashify-with-relative-paths))
 
 ;;;; Company mode

@@ -6,9 +6,21 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode nil)
+ '(column-number-mode t)
+ '(company-backends
+   (quote
+    (company-rtags company-bbdb company-nxml company-css company-eclim company-ropemacs company-cmake company-capf
+                   (company-dabbrev-code company-keywords)
+                   company-oddmuse company-files company-dabbrev)))
  '(custom-safe-themes
    (quote
-    ("a774c5551bc56d7a9c362dca4d73a374582caedb110c201a09b410c0ebbb5e70" "fd17ed452917381dfc76ee1af7699c45ca21f182f869085e247e9d5ab7ec812a" default))))
+    ("75c9f0b0499ecdd0c856939a5de052742d85af81814e84faa666522c2bba7e85" "7d4d00a2c2a4bba551fcab9bfd9186abe5bfa986080947c2b99ef0b4081cb2a6" "a774c5551bc56d7a9c362dca4d73a374582caedb110c201a09b410c0ebbb5e70" "fd17ed452917381dfc76ee1af7699c45ca21f182f869085e247e9d5ab7ec812a" default)))
+ '(linum-format " %5i ")
+ '(rtags-completions-enabled t)
+ '(rtags-path "/home/marco/src/rtags/build/")
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
 
 ;;; Disable Toolbars and other ugly stuff
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
@@ -32,11 +44,18 @@
 	      indent-tabs-mode nil
 	      echo-keystrokes 0.5)
 
+;; Backup files
+(setq backup-directory-alist `(("." . "~/.saves"))
+      delete-old-versions t
+      kept-old-versions 2
+      kept-new-versions 4
+      version-control t)
+
 ;; Uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
-;;;; Modes
+;;; Modes
 (show-paren-mode t)
 
 ;;;; Package managment
@@ -46,9 +65,6 @@
 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (package-initialize)
-
-;;;; sublime-themes
-(load-theme 'brin)
 
 (defun mp-install-rad-packages ()
   (interactive)
@@ -62,11 +78,12 @@
 	  smex
 	  evil
 	  undo-tree
-	  auto-complete
+          company
 	  grizzl
 	  projectile
 	  flx
-	  flx-ido)))
+	  flx-ido
+          key-chord)))
 
 (defun mp-install-extra-packages ()
   (interactive)
@@ -93,20 +110,24 @@
   (define-key evil-normal-state-map "UZ" 'save-some-buffers))
 
 ;;;; IDO/smex
-(after "smex-autoloads"
-  (smex-initialize)
-  (global-set-key (kbd "M-x") 'smex)
-  (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-  (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command))
+;; (after "smex-autoloads"
+;;   (smex-initialize)
+;;   (global-set-key (kbd "M-x") 'smex)
+;;   (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;;   (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command))
 
-(after "ido-ubiquitous-autoloads"
-  (require 'ido-ubiquitous)
-  (ido-mode t)
-  (ido-ubiquitous-mode t))
+;; (after "ido-ubiquitous-autoloads"
+;;   (require 'ido-ubiquitous)
+;;   (ido-mode t)
+;;   (ido-ubiquitous-mode t))
 
-(after "flx-ido-autoloads"
-  (flx-ido-mode t)
-  (setq ido-use-faces nil))
+;; (after "flx-ido-autoloads"
+;;   (flx-ido-mode t)
+;;   (setq ido-use-faces nil))
+
+;;;; sublime-themes
+(after "sublime-themes-autoloads"
+  (load-theme 'granger))
 
 ;;;; Lispy
 (after "lispy-autoloads"
@@ -123,23 +144,28 @@
   (setq projectile-completition-system 'grizzl
 	projectile-show-paths-function 'projectile-hashify-with-relative-paths))
 
-;;;; Auto-complete
-(after "auto-complete-autoloads"
-  (require 'auto-complete-config)
-  (ac-config-default)
-  (setq ac-use-menu-map t
-	ac-use-fuzzy t)
-  (ac-set-trigger-key "\C-TAB")
-  (define-key ac-menu-map "\C-n" 'ac-next)
-  (define-key ac-menu-map "\C-p" 'ac-previous)
-  (global-auto-complete-mode t))
+;;;; Company mode
+(after "company-autoloads"
+  (global-company-mode 1))
 
 ;;;; rtags
 (after "rtags-autoloads"
   (require 'rtags)
-  (require 'rtags-ac)
+  (require 'company-rtags)
   (rtags-enable-standard-keybindings c-mode-base-map)
-  (add-hook 'c-mode-common-hook (lambda () (setq ac-sources (append '(ac-source-rtags) ac-sources)))))
+  ;; Custom key bindings
+  (define-key c-mode-base-map (kbd "C-ö") 'rtags-find-symbol-at-point)
+  (define-key c-mode-base-map (kbd "C-8") 'rtags-location-stack-back)
+  (define-key c-mode-base-map (kbd "C-9") 'rtags-location-stack-forward)
+  (define-key c-mode-base-map (kbd "C-M-8") 'rtags-previous-match)
+  (define-key c-mode-base-map (kbd "C-M-9") 'rtags-next-match)
+  (add-hook 'c-mode-common-hook (lambda ()
+				  (rtags-diagnostics))))
+
+;;;; LanguageTool
+(after "langtool-autoloads"
+  (require 'langtool)
+  (setq langtool-language-tool-jar "/home/marco/Downloads/LanguageTool-2.5/languagetool.jar"))
 
 ;;;; Slime from quicklisp
 (when (load (expand-file-name "~/quicklisp/slime-helper.el") t t)
@@ -159,3 +185,31 @@
 	c-cleanup-list '(defun-close-semi
 			  scope-operator
 			  empty-defun-braces)))
+
+;;;; Helm
+(after "helm-autoloads"
+  (require 'helm-config)
+  (helm-mode 1)
+  (global-set-key (kbd "C-c m") 'helm-mini))
+
+;;;; Key chord mode
+(defun key-chord-rtags ()
+  (key-chord-define c++-mode-map "jl" 'rtags-find-symbol-at-point)
+  (key-chord-define c++-mode-map "jo" 'rtags-find-references-at-point))
+
+(defun key-chord-ace-jump ()
+  (key-chord-define-global "jf" 'ace-jump-char-mode))
+
+(after "key-chord-autoloads"
+  (key-chord-mode 1)
+  (setq-default key-chord-two-keys-delay 0.03)
+  (add-hook 'c++-mode-hook #'key-chord-rtags)
+  (when 'ace-jump-mode
+    (key-chord-ace-jump)))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

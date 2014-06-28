@@ -42,6 +42,8 @@
 (blink-cursor-mode -1)
 ;; Column numbers
 (column-number-mode t)
+;; Truncate long lines
+(toggle-truncate-lines 1)
 
 (delete-selection-mode t)
 

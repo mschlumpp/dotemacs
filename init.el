@@ -8,11 +8,6 @@
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(column-number-mode t)
- '(company-backends
-   (quote
-    (company-rtags company-bbdb company-nxml company-css company-eclim company-ropemacs company-cmake company-capf
-                   (company-dabbrev-code company-keywords)
-                   company-oddmuse company-files company-dabbrev)))
  '(custom-safe-themes
    (quote
     ("75c9f0b0499ecdd0c856939a5de052742d85af81814e84faa666522c2bba7e85" "7d4d00a2c2a4bba551fcab9bfd9186abe5bfa986080947c2b99ef0b4081cb2a6" "a774c5551bc56d7a9c362dca4d73a374582caedb110c201a09b410c0ebbb5e70" "fd17ed452917381dfc76ee1af7699c45ca21f182f869085e247e9d5ab7ec812a" default)))
@@ -85,11 +80,11 @@
 	  smex
 	  evil
 	  undo-tree
-          company
 	  grizzl
 	  projectile
 	  flx
 	  flx-ido
+          auto-complete
 	  sublimity
           powerline
           key-chord)))
@@ -153,14 +148,22 @@
   (setq projectile-completion-system 'grizzl
 	projectile-show-paths-function 'projectile-hashify-with-relative-paths))
 
-;;;; Company mode
-(after "company-autoloads"
-  (global-company-mode 1))
+;;;; AC
+(after "auto-complete-autoloads"
+  (require 'auto-complete-config)
+  (ac-config-default)
+  (setq ac-use-menu-map t
+        ac-use-fuzzy t)
+  (ac-set-trigger-key "TAB")
+  (define-key ac-menu-map "\C-n" 'ac-next)
+  (define-key ac-menu-map "\C-p" 'ac-previous)
+  (global-auto-complete-mode t))
 
 ;;;; rtags
 (after "rtags-autoloads"
   (require 'rtags)
-  (require 'company-rtags)
+  (require 'rtags-ac)
+
   (rtags-enable-standard-keybindings c-mode-base-map)
   ;; Custom key bindings
   (define-key c-mode-base-map (kbd "C-ö") 'rtags-find-symbol-at-point)
@@ -169,7 +172,8 @@
   (define-key c-mode-base-map (kbd "C-M-8") 'rtags-previous-match)
   (define-key c-mode-base-map (kbd "C-M-9") 'rtags-next-match)
   (add-hook 'c-mode-common-hook (lambda ()
-				  (rtags-diagnostics))))
+				  (rtags-diagnostics)
+                                  (setq ac-sources '(ac-source-rtags)))))
 
 ;;;; LanguageTool
 (after "langtool-autoloads"

@@ -91,6 +91,7 @@
 	  flx
 	  flx-ido
 	  sublimity
+          powerline
           key-chord)))
 
 (defun mp-install-extra-packages ()
@@ -219,6 +220,17 @@
 (after "sublimity-autoloads"
   (require 'sublimity-scroll)
   (sublimity-mode 1))
+
+;;;; fic mode (FIXME, TODO and BUG highlighting
+(after "fic-mode-autoloads"
+  (add-hook 'c++-mode-hook 'turn-on-fic-mode))
+
+;;;; flyspell mode
+(key-chord-define-global "ur" 'ispell-word)
+
+;;;; Powerline
+(after "powerline-autoloads"
+  (powerline-default-theme))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

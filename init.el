@@ -136,7 +136,7 @@
 
 ;;;; sublime-themes
 (after "sublime-themes-autoloads"
-  (load-theme 'granger))
+  (load-theme 'leuven))
 
 ;;;; Lispy
 (after "lispy-autoloads"

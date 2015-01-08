@@ -6,12 +6,28 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(Linum-format "%7i ")
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(custom-safe-themes
    (quote
-    ("75c9f0b0499ecdd0c856939a5de052742d85af81814e84faa666522c2bba7e85" "7d4d00a2c2a4bba551fcab9bfd9186abe5bfa986080947c2b99ef0b4081cb2a6" "a774c5551bc56d7a9c362dca4d73a374582caedb110c201a09b410c0ebbb5e70" "fd17ed452917381dfc76ee1af7699c45ca21f182f869085e247e9d5ab7ec812a" default)))
+    ("255104c2f5c857498231bc7efbd374026e4ad43547d6fdb4c08be95bc9c871bd" "c5a044ba03d43a725bd79700087dea813abcb6beb6be08c7eb3303ed90782482" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" "7bf64a1839bf4dbc61395bd034c21204f652185d17084761a648251041b70233" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "ef43b291f7e96826d3d9bae61434a93020d0f529d609bc8be5b331980e8448d7" default)))
+ '(fci-rule-character-color "#202020")
+ '(fci-rule-color "#202020")
+ '(fringe-mode 4 nil (fringe))
  '(linum-format " %5i ")
+ '(main-line-color1 "#1E1E1E")
+ '(main-line-color2 "#111111")
+ '(main-line-separator-style (quote chamfer))
+ '(menu-bar-mode nil)
+ '(powerline-color1 "#1E1E1E")
+ '(powerline-color2 "#111111")
+ '(rainbow-identifiers-cie-l*a*b*-lightness 80)
+ '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rtags-completions-enabled t)
  '(rtags-path "/home/marco/src/rtags/build/")
  '(show-paren-mode t)
@@ -60,6 +76,9 @@
 ;;; Modes
 (show-paren-mode t)
 
+;;; Some keybindings
+(global-set-key (kbd "C-c o") 'ff-find-other-file)
+
 ;;;; Package managment
 (require 'package)
 (setq package-user-dir "~/.emacs.d/elpa")
@@ -85,9 +104,7 @@
 	  flx
 	  flx-ido
           auto-complete
-	  sublimity
-          powerline
-          key-chord)))
+          powerline)))
 
 (defun mp-install-extra-packages ()
   (interactive)
@@ -130,8 +147,10 @@
 ;;   (setq ido-use-faces nil))
 
 ;;;; sublime-themes
-(after "sublime-themes-autoloads"
-  (load-theme 'leuven))
+;; (after "sublime-themes-autoloads"
+;;   (load-theme 'granger))
+
+(load-theme 'deep-thought)
 
 ;;;; Lispy
 (after "lispy-autoloads"
@@ -203,42 +222,43 @@
 (after "helm-autoloads"
   (require 'helm-config)
   (helm-mode 1)
-  (global-set-key (kbd "C-c m") 'helm-mini))
-
-;;;; Key chord mode
-(defun key-chord-rtags ()
-  (key-chord-define c++-mode-map "jl" 'rtags-find-symbol-at-point)
-  (key-chord-define c++-mode-map "jo" 'rtags-find-references-at-point))
-
-(defun key-chord-ace-jump ()
-  (key-chord-define-global "jf" 'ace-jump-char-mode))
-
-(after "key-chord-autoloads"
-  (key-chord-mode 1)
-  (setq-default key-chord-two-keys-delay 0.03)
-  (add-hook 'c++-mode-hook #'key-chord-rtags)
-  (when 'ace-jump-mode
-    (key-chord-ace-jump)))
-
-;;;; Sublimity
-(after "sublimity-autoloads"
-  (require 'sublimity-scroll)
-  (sublimity-mode 1))
+  (global-unset-key (kbd "M-x"))
+  (global-set-key (kbd "M-x") 'helm-M-x)
+  (global-set-key (kbd "C-c m") 'helm-mini)
+  (global-set-key (kbd "C-c a") 'helm-do-ag))
 
 ;;;; fic mode (FIXME, TODO and BUG highlighting
 (after "fic-mode-autoloads"
   (add-hook 'c++-mode-hook 'turn-on-fic-mode))
 
-;;;; flyspell mode
-(key-chord-define-global "ur" 'ispell-word)
-
 ;;;; Powerline
 (after "powerline-autoloads"
   (powerline-default-theme))
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(after "haskell-mode"
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indent))
+
+(after "ghc-autoloads"
+  (autoload 'ghc-ini "ghc" nil t)
+  (autoload 'ghc-debug "ghc" nil t)
+  (add-hook 'haskell-mode-hook (lambda () (ghc-init))))
+
+;;;; Neo Tree
+(after "neotree-autoloads"
+  (require 'neotree)
+  (global-set-key (kbd "<f8>") 'neotree-toggle)
+  (define-key neotree-mode-map (kbd "j") 'next-line)
+  (define-key neotree-mode-map (kbd "k") 'previous-line)
+  (define-key neotree-mode-map (kbd "C-w C-l") 'evil-window-right)
+  (add-hook 'neotree-mode-hook 'evil-emacs-state))
+
+(after "smart-mode-line-autoloads"
+  (sml/setup))
+
+;;;; gdb
+(setq
+ gdb-many-windows t)
+
+;;;; autopair
+(after "autopair-autoloads"
+  (autopair-global-mode 1))

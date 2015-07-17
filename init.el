@@ -257,67 +257,16 @@
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(compilation-message-face (quote default))
- '(cua-global-mark-cursor-color "#2aa198")
- '(cua-normal-cursor-color "#657b83")
- '(cua-overwrite-cursor-color "#b58900")
- '(cua-read-only-cursor-color "#859900")
  '(cursor-color "#cccccc")
  '(custom-safe-themes
    (quote
     ("7a778124fe4474197006e6131acead2b32acc8dd06be7c70a1b2a5f0fec5f0ee" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "c3b79a6eed3dac3e86f48d06f61c3fd1c7d73b647af0ddaf36a673c006f1a8eb" "255104c2f5c857498231bc7efbd374026e4ad43547d6fdb4c08be95bc9c871bd" "c5a044ba03d43a725bd79700087dea813abcb6beb6be08c7eb3303ed90782482" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" "7bf64a1839bf4dbc61395bd034c21204f652185d17084761a648251041b70233" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "ef43b291f7e96826d3d9bae61434a93020d0f529d609bc8be5b331980e8448d7" default)))
  '(diary-entry-marker (quote font-lock-variable-name-face))
- '(electric-pair-mode nil)
- '(emms-mode-line-icon-image-cache
-   (quote
-    (image :type xpm :ascent center :data "/* XPM */
-static char *note[] = {
-/* width height num_colors chars_per_pixel */
-\"    10   11        2            1\",
-/* colors */
-\". c #358d8d\",
-\"# c None s None\",
-/* pixels */
-\"###...####\",
-\"###.#...##\",
-\"###.###...\",
-\"###.#####.\",
-\"###.#####.\",
-\"#...#####.\",
-\"....#####.\",
-\"#..######.\",
-\"#######...\",
-\"######....\",
-\"#######..#\" };")))
  '(fci-rule-character-color "#202020")
  '(fci-rule-color "#202020")
  '(flycheck-disabled-checkers (quote (c/c++-clang c/c++-gcc)))
  '(foreground-color "#cccccc")
  '(fringe-mode (quote (nil . 0)) nil (fringe))
- '(gnus-logo-colors (quote ("#259ea2" "#adadad")))
- '(gnus-mode-line-image-cache
-   (quote
-    (image :type xpm :ascent center :data "/* XPM */
-static char *gnus-pointer[] = {
-/* width height num_colors chars_per_pixel */
-\"    18    13        2            1\",
-/* colors */
-\". c #358d8d\",
-\"# c None s None\",
-/* pixels */
-\"##################\",
-\"######..##..######\",
-\"#####........#####\",
-\"#.##.##..##...####\",
-\"#...####.###...##.\",
-\"#..###.######.....\",
-\"#####.########...#\",
-\"###########.######\",
-\"####.###.#..######\",
-\"######..###.######\",
-\"###....####.######\",
-\"###..######.######\",
-\"###########.######\" };")))
- '(helm-mode t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -347,20 +296,12 @@ static char *gnus-pointer[] = {
  '(magit-diff-use-overlays nil)
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate")))
  '(magit-use-overlays nil)
- '(main-line-color1 "#1E1E1E")
- '(main-line-color2 "#111111")
- '(main-line-separator-style (quote chamfer))
- '(menu-bar-mode nil)
  '(org-agenda-files (quote ("~/org/notes.org")))
  '(package-selected-packages
    (quote
     (esup use-package hungry-delete rtags company-go go-mode eval-sexp-fu slime-company company-c-headers smartparens elm-mode flycheck-rust rust-mode zerodark-theme cpputils-cmake bison-mode helm-ag projectile web-mode elixir-mode alchemist adoc-mode virtualenvwrapper pyvenv geiser css-eldoc sql-indent goto-chg paredit undo-tree rainbow-blocks rainbow-delimiters stgit magit-stgit ample-theme guide-key ace-jump-mode helm-themes rnc-mode yasnippet yaml-mode ujelly-theme tup-mode toml-mode sublime-themes stekene-theme spacegray-theme soothe-theme solarized-theme soft-charcoal-theme smart-mode-line scion plantuml-mode planet-theme noflet neotree markdown-mode+ lua-mode latex-preview-pane key-chord json-mode irony-eldoc highlight-indentation hamlet-mode grizzl git-gutter-fringe+ fuzzy flycheck-irony flx-ido fic-mode cyberpunk-theme company-irony color-theme-sanityinc-tomorrow cmake-mode auctex ag)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
- '(powerline-color1 "#191919")
- '(powerline-color2 "#111111")
- '(rainbow-identifiers-cie-l*a*b*-lightness 80)
- '(rainbow-identifiers-cie-l*a*b*-saturation 18)
  '(rng-schema-locating-files
    (quote
     ("schemas.xml" "/usr/share/emacs/25.0.50/etc/schema/schemas.xml" "/home/marco/.schema/schemas.xml")))

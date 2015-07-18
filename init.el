@@ -9,7 +9,7 @@
 
 ;; Font
 (add-to-list 'default-frame-alist
-	     '(font . "Source Code Pro Medium:pixelsize=12"))
+	     '(font . "Terminusmodx.Icons:pixelsize=9"))
 
 (setq-default show-trailing-whitespace t
 	      indent-tabs-mode nil

@@ -104,16 +104,18 @@
 
 ;;;; rtags
 (use-package rtags
+  :commands (rtags-find-symbol-at-point rtags-location-stack-back)
   :bind (("C-c r ," . rtags-find-references-at-point)
          ("C-c r v" . rtags-find-virtuals-at-point)
          ("C-c r h" . rtags-print-class-hierarchy)
          ("C-c r f" . rtags-fixit)
          ("C-c r r" . rtags-rename-symbol)
-         ;; Rebind because rtags has no xref integration
-         ("M-." . rtags-find-symbol-at-point)
-         ("M-," . rtags-location-stack-back)
          ("C-M-8" . rtags-previous-match)
-         ("C-M-9" . rtags-next-match)))
+         ("C-M-9" . rtags-next-match))
+  :init
+  (add-hook 'c-mode-common-hook (lambda ()
+                                 (define-key c-mode-base-map (kbd "M-.") 'rtags-find-symbol-at-point)
+                                 (define-key c-mode-base-map (kbd "M-,") 'rtags-location-stack-back))))
 
 ;;;; Company
 (use-package company

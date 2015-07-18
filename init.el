@@ -93,6 +93,21 @@
   :config
   (setq magit-last-seen-setup-instructions "1.4.0"))
 
+;;;; Anzu
+(use-package anzu
+  :ensure t
+  :demand t
+  :bind (("M-%" . anzu-query-replace)
+         ("C-M-%" . anzu-query-replace-regexp))
+  :config
+  (global-anzu-mode 1))
+
+;;;; Expand region
+(use-package expand-region
+  :ensure t
+  :commands er/expand-region
+  :bind ("C-+" . er/expand-region))
+
 ;;;; Projectile
 (use-package projectile
   :ensure t

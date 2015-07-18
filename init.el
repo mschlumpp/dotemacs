@@ -265,6 +265,15 @@
   :config
   (global-undo-tree-mode 1))
 
+;;;; Popwin
+(use-package popwin
+  :demand t
+  :defines popwin:keymap
+  :config
+  (popwin-mode)
+  (global-set-key (kbd "C-c w") popwin:keymap)
+  (add-to-list 'popwin:special-display-config '("*RTags*" :noselect t :position right :width 60)))
+
 ;;;; Python
 (use-package jedi
   :commands jedi:setup

@@ -95,6 +95,7 @@
 
 ;;;; Projectile
 (use-package projectile
+  :ensure t
   :bind ("C-c h" . projectile-find-file)
   :bind-keymap ("C-c p" . projectile-command-map)
   :config

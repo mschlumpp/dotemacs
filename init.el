@@ -212,7 +212,9 @@
 ;;;; Neo Tree
 (use-package neotree
   :commands neotree-toggle
-  :bind ("<f8>" . neotree-toggle))
+  :bind ("<f8>" . neotree-toggle)
+  :config
+  (setq-default neo-theme 'ascii))
 
 ;;;; Smart mode line
 (use-package smart-mode-line

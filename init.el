@@ -18,7 +18,7 @@
 
 ;; Font
 (add-to-list 'default-frame-alist
-             '(font . "Terminusmodx.Icons:pixelsize=9"))
+             '(font . "terminus:pixelsize=9"))
 
 (setq-default show-trailing-whitespace t
               indent-tabs-mode nil

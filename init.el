@@ -111,6 +111,10 @@
   :config
   (global-anzu-mode 1))
 
+;;;; Avy
+(use-package avy
+  :bind ("C-ö" . avy-goto-word-or-subword-1))
+
 ;;;; Expand region
 (use-package expand-region
   :ensure t
@@ -204,6 +208,7 @@
 
 ;;;; c-mode setup
 (after "cc-mode"
+  (add-hook 'c++-mode-hook (lambda () (subword-mode 1)))
   (c-add-style "unknown"
                '("java"
                  (c-offsets-alist
@@ -249,15 +254,11 @@
 ;;;; gdb
 (setq gdb-many-windows t)
 
-;;;; Guide-key
-(use-package guide-key
+;;;; Which key
+(use-package which-key
   :config
-  (setq guide-key/recursive-key-sequence-flag t
-        guide-key/guide-key-sequence '("C-x c" "C-c" "C-x 4")
-        guide-key/highlight-command-regexp
-        '("rectangle"
-          ("at-point" . "Royalblue3")))
-  (guide-key-mode 1))
+  (which-key-mode 1)
+  (which-key-setup-minibuffer))
 
 ;;;; Undo-tree
 (use-package undo-tree

@@ -47,6 +47,7 @@
 (delete-selection-mode t)
 (electric-pair-mode t)
 (windmove-default-keybindings)
+(winner-mode t)
 
 ;; Uniquify buffer names
 (require 'uniquify)

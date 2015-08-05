@@ -55,6 +55,7 @@
 
 ;; Some keybindings
 (global-set-key (kbd "C-c o") 'ff-find-other-file)
+(global-set-key (kbd "C-c m") 'switch-to-buffer)
 
 ;; Org mode
 (global-set-key (kbd "C-c l") 'org-store-link)
@@ -230,14 +231,31 @@
                           empty-defun-braces)))
 
 ;;;; Helm
-(use-package helm
+;; (use-package helm
+;;   :demand t
+;;   :bind (("M-x" . helm-M-x)
+;;          ("C-c m" . helm-mini)
+;;          ("C-c a" . helm-do-ag))
+;;   :config
+;;   (require 'helm-config)
+;;   (helm-mode 1))
+
+(use-package ido-ubiquitous
   :demand t
-  :bind (("M-x" . helm-M-x)
-         ("C-c m" . helm-mini)
-         ("C-c a" . helm-do-ag))
   :config
-  (require 'helm-config)
-  (helm-mode 1))
+  (ido-mode t)
+  (ido-everywhere t)
+  (ido-ubiquitous t))
+
+(use-package smex
+  :demand t
+  :bind (("M-x" . smex))
+  :config
+  (smex-initialize))
+
+(use-package flx-ido
+  :config
+  (flx-ido-mode t))
 
 ;;;; fic mode (FIXME, TODO and BUG highlighting
 (use-package fic-mode

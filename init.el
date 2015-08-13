@@ -243,11 +243,6 @@
   :config
   (global-whitespace-cleanup-mode 1))
 
-;;;; Hungry delete mode
-(use-package hungry-delete
-  :config
-  (global-hungry-delete-mode 1))
-
 ;;;; c-mode setup
 (after "cc-mode"
   (add-hook 'c++-mode-hook (lambda () (subword-mode 1)))

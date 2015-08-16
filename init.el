@@ -327,7 +327,8 @@
   :config
   (popwin-mode)
   (global-set-key (kbd "C-c w") popwin:keymap)
-  (add-to-list 'popwin:special-display-config '("*RTags*" :noselect t :position right :width 60)))
+  (add-to-list 'popwin:special-display-config '("*RTags*" :noselect t :position right :width 60))
+  (add-to-list 'popwin:special-display-config '("*Flycheck errors*" :noselect t)))
 
 ;;;; Python
 (use-package jedi

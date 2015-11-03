@@ -151,6 +151,12 @@
 (use-package avy
   :bind ("C-ö" . avy-goto-word-or-subword-1))
 
+;;;; Beacon
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1))
+
 ;;;; Expand region
 (use-package expand-region
   :ensure t

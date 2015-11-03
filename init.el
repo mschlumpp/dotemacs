@@ -233,6 +233,10 @@
 (use-package flycheck
   :commands flycheck-mode-on-safe)
 
+;;;; clang-format
+(use-package clang-format
+  :bind ("C-<tab>" . clang-format-region))
+
 ;;;; SLIME
 (use-package slime
   :commands slime

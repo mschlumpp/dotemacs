@@ -343,11 +343,6 @@
   :init
   (add-hook 'python-mode-hook 'jedi:setup))
 
-(use-package alchemist
-  :commands alchemist-mode
-  :config
-  (setq alchemist-key-command-prefix (kbd "C-c f")))
-
 ;;;; Rust
 (use-package racer
   :init

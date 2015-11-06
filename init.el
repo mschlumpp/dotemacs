@@ -157,6 +157,11 @@
   :config
   (beacon-mode 1))
 
+;;;; iflipb
+(use-package iflipb
+  :bind (("C-." . iflipb-next-buffer)
+         ("C-," . iflipb-previous-buffer)))
+
 ;;;; Expand region
 (use-package expand-region
   :ensure t

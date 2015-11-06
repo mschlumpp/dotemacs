@@ -9,6 +9,7 @@
 ;; Calls (package-initialize)
 (require 'init-core)
 (require 'init-appearance)
+(require 'init-theme)
 (require 'init-editor)
 (require 'init-navigation)
 (require 'init-utils)

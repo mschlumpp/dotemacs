@@ -283,32 +283,16 @@
                           scope-operator
                           empty-defun-braces)))
 
-;;;; Helm
-;; (use-package helm
-;;   :demand t
-;;   :bind (("M-x" . helm-M-x)
-;;          ("C-c m" . helm-mini)
-;;          ("C-c a" . helm-do-ag))
-;;   :config
-;;   (require 'helm-config)
-;;   (helm-mode 1))
-
-(use-package ido-ubiquitous
+(use-package swiper
   :demand t
   :config
-  (ido-mode t)
-  (ido-everywhere t)
-  (ido-ubiquitous t))
+  (setq ivy-display-style 'fancy)
+  (ivy-mode 1))
 
-(use-package smex
+(use-package counsel
   :demand t
-  :bind (("M-x" . smex))
-  :config
-  (smex-initialize))
-
-(use-package flx-ido
-  :config
-  (flx-ido-mode t))
+  :bind (("M-x" . counsel-M-x)
+         ("C-c a" . counsel-ag)))
 
 ;;;; fic mode (FIXME, TODO and BUG highlighting
 (use-package fic-mode

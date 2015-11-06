@@ -128,6 +128,11 @@
   :init
   (load-theme 'zerodark t))
 
+;;;; Editorconfig
+(use-package editorconfig
+  :init
+  (editorconfig-mode 1))
+
 ;;;; Paredit
 (defun use-paredit ()
   (electric-pair-mode -1)

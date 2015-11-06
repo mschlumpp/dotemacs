@@ -213,6 +213,13 @@
   :config
   (add-to-list 'company-backends 'company-irony))
 
+(use-package company-irony-c-headers
+  :commands company-irony-c-headers
+  :init
+  (add-hook 'irony-mode-hook
+            #'(lambda ()
+                (add-to-list 'company-backends 'company-irony-c-headers))))
+
 (use-package irony-eldoc
   :commands irony-eldoc
   :init

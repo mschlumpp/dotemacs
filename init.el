@@ -7,8 +7,6 @@
 ;;;; Appearance
 ;; Theme
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory (convert-standard-filename "themes/")))
-(load-theme 'ujelly t)
-(setq sml/theme 'dark)
 
 ;; Disable Toolbars and other ugly stuff
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
@@ -125,6 +123,10 @@
         (windmove-find-other-window 'up))
       (shrink-window arg)
     (enlarge-window arg)))
+
+(use-package zerodark-theme
+  :init
+  (load-theme 'zerodark t))
 
 ;;;; Paredit
 (defun use-paredit ()
@@ -320,12 +322,6 @@
   :bind ("<f8>" . neotree-toggle)
   :config
   (setq-default neo-theme 'ascii))
-
-;;;; Smart mode line
-(use-package smart-mode-line
-  :config
-  (setq sml/no-confirm-load-theme t)
-  (sml/setup))
 
 ;;;; gdb
 (setq gdb-many-windows t)

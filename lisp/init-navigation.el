@@ -1,8 +1,17 @@
 (use-package swiper
   :demand t
+  :bind (("C-s" . swiper))
   :config
-  (setq ivy-display-style 'fancy)
+  (setq ivy-use-virtual-buffers t)
+  (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
+  (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)
+  (define-key ivy-minibuffer-map (kbd "C-l") 'ivy-alt-done)
+  (define-key ivy-minibuffer-map (kbd "C-h") 'ivy-backward-kill-word)
   (ivy-mode 1))
+
+(use-package flx
+  :config
+  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy))))
 
 (use-package counsel
   :demand t

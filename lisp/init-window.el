@@ -33,6 +33,17 @@
       (shrink-window arg)
     (enlarge-window arg)))
 
+;; `hydra-buffer-switch/body' modifies `last-command' on enter and breaks iflipb
+(defun quick-buffer//fix-next ()
+  (interactive)
+  (setq last-command 'iflipb-next-buffer)
+  (iflipb-next-buffer nil))
+
+(defun quick-buffer//fix-prev ()
+  (interactive)
+  (setq last-command 'iflipb-next-buffer)
+  (iflipb-previous-buffer))
+
 (use-package hydra
   :config
   (defhydra hydra-window (global-map "C-#" :hint nil)
@@ -68,7 +79,18 @@
     ("f" ido-find-file)
     ("z" winner-undo)
     ("Z" winner-redo)
-    ("SPC" nil)))
+    ("SPC" nil))
+
+  (defhydra hydra-buffer-switch (:hint nil)
+    "[,] prev [.] next"
+    ("," quick-buffer//fix-prev)
+    ("." quick-buffer//fix-next))
+
+  (evil-leader/set-key
+    "." (lambda ()
+          (interactive)
+          (iflipb-next-buffer nil)
+          (hydra-buffer-switch/body))))
 
 
 ;;;; Popwin

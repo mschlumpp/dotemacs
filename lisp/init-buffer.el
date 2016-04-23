@@ -6,10 +6,6 @@
  ("C-c o" . ff-find-other-file)
  ("C-c m" . switch-to-buffer))
 
-(use-package iflipb
-  :bind (("C-." . iflipb-next-buffer)
-         ("C-," . iflipb-previous-buffer)))
-
 (use-package projectile
   :ensure t
   :bind ("C-c h" . projectile-find-file)

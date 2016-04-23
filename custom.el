@@ -46,7 +46,6 @@
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
  '(indicate-empty-lines t)
- '(ivy-mode t)
  '(linum-format " %5i ")
  '(magit-diff-use-overlays nil)
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate")))
@@ -54,18 +53,28 @@
  '(org-agenda-files (quote ("~/org/notes.org")))
  '(package-selected-packages
    (quote
-    (whitespace-cleanup-mode anzu expand-region noctilux-theme jedi esup use-package hungry-delete rtags company-go go-mode eval-sexp-fu slime-company company-c-headers smartparens elm-mode flycheck-rust rust-mode zerodark-theme cpputils-cmake bison-mode helm-ag projectile web-mode elixir-mode alchemist adoc-mode virtualenvwrapper pyvenv geiser css-eldoc sql-indent goto-chg paredit undo-tree rainbow-blocks rainbow-delimiters stgit magit-stgit ample-theme guide-key ace-jump-mode helm-themes rnc-mode yasnippet yaml-mode ujelly-theme tup-mode toml-mode sublime-themes stekene-theme spacegray-theme soothe-theme solarized-theme soft-charcoal-theme scion plantuml-mode planet-theme noflet neotree markdown-mode+ lua-mode latex-preview-pane key-chord json-mode irony-eldoc highlight-indentation hamlet-mode grizzl git-gutter-fringe+ fuzzy flycheck-irony flx-ido fic-mode cyberpunk-theme company-irony cmake-mode auctex ag)))
+    (spaceline auctex auctex-latexmk pandoc-mode langtool tide dracula-theme go-eldoc company-go spacemacs-theme evil-magit evil-leader evil-escape evil iflipb material-theme use-package paradox beacon company-irony-c-headers counsel geiser tango-plus-theme company-dcd d-mode rainbow-identifiers virtualenvwrapper multiple-cursors lispy jsx-mode free-keys editorconfig clang-format ido-vertical-mode helm-themes color-identifiers-mode sublimity helm-gitignore gitignore-mode async smex ido-ubiquitous typescript-mode popwin hydra which-key avy smart-mode-line ghc haskell-mode js2-mode clojure-mode whitespace-cleanup-mode anzu expand-region noctilux-theme jedi esup rtags eval-sexp-fu slime-company company-c-headers smartparens elm-mode flycheck-rust rust-mode zerodark-theme cpputils-cmake bison-mode projectile web-mode elixir-mode alchemist adoc-mode css-eldoc goto-chg paredit undo-tree rainbow-blocks rainbow-delimiters stgit magit-stgit rnc-mode yasnippet yaml-mode tup-mode toml-mode sublime-themes stekene-theme spacegray-theme soothe-theme solarized-theme scion plantuml-mode planet-theme noflet neotree markdown-mode+ lua-mode latex-preview-pane json-mode irony-eldoc highlight-indentation hamlet-mode git-gutter-fringe+ fuzzy flycheck-irony flx-ido fic-mode company-irony cmake-mode ag)))
+ '(paradox-github-token t)
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
+ '(racer-cmd "/home/marco/src/racer/target/release/racer")
+ '(racer-rust-src-path "/home/marco/src/rust/src/")
+ '(rainbow-identifiers-cie-l*a*b*-lightness 25)
+ '(rainbow-identifiers-cie-l*a*b*-saturation 40)
  '(rng-schema-locating-files
    (quote
-    ("schemas.xml" "/usr/share/emacs/25.0.50/etc/schema/schemas.xml" "/home/marco/.schema/schemas.xml")))
- '(rtags-path "/home/marco/src/rtags/build/")
+    ("/home/marco/.schema/schemas.xml" "schemas.xml" "/usr/share/emacs/25.0.50/etc/schema/schemas.xml")))
+ '(rtas-path "/home/marco/src/rtags/build/")
+ '(safe-local-variable-values
+   (quote
+    ((hamlet/basic-offset . 4)
+     (haskell-process-use-ghci . t)
+     (haskell-indent-spaces . 4))))
  '(show-paren-mode t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
+ '(tabbar-background-color "#ffffff")
  '(term-default-bg-color "#fdf6e3")
  '(term-default-fg-color "#657b83")
- '(tool-bar-mode nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -90,11 +99,15 @@
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
    (quote
-    (unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496"))))
+    (unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496")))
+ '(xterm-color-names
+   ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"])
+ '(xterm-color-names-bright
+   ["#002b36" "#cb4b16" "#586e75" "#657b83" "#839496" "#6c71c4" "#93a1a1" "#fdf6e3"]))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:background nil)))))

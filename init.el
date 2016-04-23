@@ -8,6 +8,7 @@
 
 ;; Calls (package-initialize)
 (require 'init-core)
+(require 'init-evil)
 (require 'init-appearance)
 (require 'init-theme)
 (require 'init-editor)

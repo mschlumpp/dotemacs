@@ -1,6 +1,11 @@
 (use-package magit
   :commands magit-status
-  :bind ("C-c i" . magit-status)
+  :init
+  (use-package evil-magit
+    :ensure t
+    :init
+    (require 'evil-magit))
+  (evil-leader/set-key "gs" 'magit-status)
   :config
   (setq magit-last-seen-setup-instructions "1.4.0"))
 

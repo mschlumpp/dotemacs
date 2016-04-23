@@ -20,4 +20,10 @@
   :config
   (beacon-mode 1))
 
+(use-package spaceline
+  :config
+  (require 'spaceline-config)
+  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+  (spaceline-spacemacs-theme))
+
 (provide 'init-appearance)

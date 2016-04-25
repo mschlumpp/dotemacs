@@ -12,6 +12,13 @@
 (add-to-list 'default-frame-alist
              '(font . "Input Mono Narrow:pixelsize=12"))
 
+(defun xy//remove-bold ()
+  (interactive)
+  (mapc
+   (lambda (face)
+     (set-face-attribute face nil :weight 'normal :underline nil))
+   (face-list)))
+
 (setq-default show-trailing-whitespace t
               echo-keystrokes 0.5)
 

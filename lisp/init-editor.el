@@ -29,7 +29,24 @@
 (use-package company
   :ensure t
   :config
-  (global-company-mode 1))
+  (global-company-mode 1)
+  (global-set-key (kbd "M-TAB") #'company-complete)
+  (define-key company-active-map (kbd "C-j") #'company-select-next)
+  (define-key company-active-map (kbd "C-k") #'company-select-previous)
+  (define-key company-active-map (kbd "C-l") #'company-complete-selection)
+
+  (use-package company-flx
+    :ensure t
+    :config
+    (company-flx-mode 1))
+  (use-package company-statistics
+    :ensure t
+    :config
+    (company-statistics-mode 1))
+  (use-package company-quickhelp
+    :ensure t
+    :config
+    (company-quickhelp-mode 1)))
 
 (use-package whitespace-cleanup-mode
   :config

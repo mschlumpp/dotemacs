@@ -13,9 +13,9 @@
                           empty-defun-braces)))
 
 (use-package fic-mode
-  :commands turn-on-fic-mode
+  :commands (turn-on-fic-mode)
   :init
-  (add-hook 'c++-mode-hook 'turn-on-fic-mode))
+  (add-hook 'c++-mode-hook 'fic-mode))
 
 (use-package cpputils-cmake
   :commands cppcm-reload-all

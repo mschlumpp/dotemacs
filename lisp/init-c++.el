@@ -40,37 +40,22 @@
                                  (define-key c-mode-base-map (kbd "M-.") 'rtags-find-symbol-at-point)
                                  (define-key c-mode-base-map (kbd "M-,") 'rtags-location-stack-back))))
 
-(use-package irony
-  :commands irony-mode
+;;;; ycmd
+(use-package ycmd
   :init
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+  (require 'ycmd-eldoc)
+  (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup)
+  (set-variable 'ycmd-server-command '("python" "/home/marco/.emacs.d/ycmd/ycmd"))
+  (set-variable 'ycmd-extra-conf-whitelist '("~/Projekte/*"))
+  (global-ycmd-mode 1))
 
-(use-package company-irony
-  :commands company-irony
+(use-package company-ycmd
   :init
-  (add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
-  :config
-  (add-to-list 'company-backends 'company-irony))
+  (company-ycmd-setup))
 
-(use-package company-irony-c-headers
-  :commands company-irony-c-headers
+(use-package flycheck-ycmd
   :init
-  (add-hook 'irony-mode-hook
-            #'(lambda ()
-                (add-to-list 'company-backends 'company-irony-c-headers))))
-
-(use-package irony-eldoc
-  :commands irony-eldoc
-  :init
-  (add-hook 'irony-mode-hook 'irony-eldoc))
-
-(use-package flycheck-irony
-  :commands flycheck-irony-setup
-  :init
-  (add-hook 'irony-mode-hook 'flycheck-irony-setup)
-  (add-hook 'irony-mode-hook 'flycheck-mode-on-safe))
+  (flycheck-ycmd-setup))
 
 ;;;; clang-format
 (use-package clang-format

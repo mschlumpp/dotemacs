@@ -12,9 +12,7 @@
   :ensure t
   :demand t
   :bind (("M-%" . anzu-query-replace)
-         ("C-M-%" . anzu-query-replace-regexp))
-  :config
-  (global-anzu-mode 1))
+         ("C-M-%" . anzu-query-replace-regexp)))
 
 (use-package expand-region
   :ensure t

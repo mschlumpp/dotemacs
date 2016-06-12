@@ -23,6 +23,7 @@
               echo-keystrokes 0.5)
 
 (use-package beacon
+  :diminish beacon-mode
   :ensure t
   :config
   (beacon-mode 1))

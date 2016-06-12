@@ -22,11 +22,13 @@
   :bind ("C-+" . er/expand-region))
 
 (use-package undo-tree
+  :diminish undo-tree-mode
   :ensure t
   :config
   (global-undo-tree-mode 1))
 
 (use-package company
+  :diminish "Ⓒ"
   :ensure t
   :config
   (global-company-mode 1)
@@ -49,6 +51,7 @@
     (company-quickhelp-mode 1)))
 
 (use-package whitespace-cleanup-mode
+  :diminish (whitespace-cleanup-mode . "ⓦ")
   :config
   (global-whitespace-cleanup-mode 1))
 

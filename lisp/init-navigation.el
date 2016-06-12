@@ -1,4 +1,5 @@
 (use-package swiper
+  :diminish ivy-mode
   :demand t
   :bind (("C-s" . swiper))
   :config

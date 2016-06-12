@@ -4,6 +4,7 @@
   (evil-mode 1))
 
 (use-package evil-escape
+  :diminish evil-escape-mode
   :ensure t
   :config
   (evil-escape-mode 1)

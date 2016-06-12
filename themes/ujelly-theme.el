@@ -9,7 +9,7 @@
 
 (let ((class '((class color) (min-colors 89)))
       (ujelly-fg "#ffffff")
-      (ujelly-bg "#1a1a1a")
+      (ujelly-bg "#1B202A")
       (ujelly-blue-0 "#8fbfdc")
       (ujelly-green-0 "#99ad6a")
       (ujelly-green-1 "#447799")

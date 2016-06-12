@@ -44,6 +44,9 @@
   (setq last-command 'iflipb-next-buffer)
   (iflipb-previous-buffer))
 
+(use-package iflipb
+  :ensure t)
+
 (use-package hydra
   :ensure t
   :config

@@ -16,6 +16,8 @@
 
 ;;;; Flycheck
 (use-package flycheck
-  :commands flycheck-mode-on-safe)
+  :commands flycheck-mode-on-safe
+  :init
+  (add-hook 'c++-mode-hook (lambda () (flycheck-mode-on-safe))))
 
 (provide 'init-buffer)

@@ -45,6 +45,7 @@
   (iflipb-previous-buffer))
 
 (use-package hydra
+  :ensure t
   :config
   (defhydra hydra-window (global-map "C-#" :hint nil)
     "

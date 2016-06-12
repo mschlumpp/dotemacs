@@ -45,18 +45,18 @@
 (use-package ycmd
   :diminish "ⓨ"
   :init
-  (require 'ycmd-eldoc)
-  (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup)
+  (when (require 'ycmd-eldoc nil t)
+    (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup))
   (set-variable 'ycmd-server-command '("python" "/home/marco/.emacs.d/ycmd/ycmd"))
   (set-variable 'ycmd-extra-conf-whitelist '("~/Projekte/*"))
   (global-ycmd-mode 1))
 
 (use-package company-ycmd
-  :init
+  :config
   (company-ycmd-setup))
 
 (use-package flycheck-ycmd
-  :init
+  :config
   (flycheck-ycmd-setup))
 
 ;;;; clang-format

@@ -38,7 +38,7 @@
       (package-refresh-contents))
     (package-install package)))
 
-(ensure-package 'bind-key)
+(ensure-package 'bind-key t)
 (require 'bind-key)
 (ensure-package 'use-package t)
 (require 'use-package)

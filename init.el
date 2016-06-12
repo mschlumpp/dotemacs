@@ -4,7 +4,7 @@
 
 ;;;; Put Customize stuff into separate file
 (setq custom-file (concat user-emacs-directory (convert-standard-filename "custom.el")))
-(load custom-file)
+(load custom-file 'noerror)
 
 ;; Calls (package-initialize)
 (require 'init-core)

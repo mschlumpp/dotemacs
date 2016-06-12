@@ -1,7 +1,9 @@
 (use-package evil
   :ensure t
   :config
-  (evil-mode 1))
+  (evil-mode 1)
+  (define-key evil-motion-state-map (kbd "K") nil)
+  (define-key evil-normal-state-map (kbd "M-.") nil))
 
 (use-package evil-escape
   :diminish evil-escape-mode

@@ -10,7 +10,7 @@
 
 ;; Font
 (add-to-list 'default-frame-alist
-             '(font . "Input Mono Narrow:pixelsize=12"))
+             '(font . "Input-9"))
 
 (defun xy//remove-bold ()
   (interactive)

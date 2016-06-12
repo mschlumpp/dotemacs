@@ -1,6 +1,7 @@
 (use-package swiper
   :diminish ivy-mode
   :demand t
+  :ensure t
   :bind (("C-s" . swiper))
   :config
   (setq ivy-use-virtual-buffers t)
@@ -11,10 +12,12 @@
   (ivy-mode 1))
 
 (use-package flx
+  :ensure t
   :config
   (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy))))
 
 (use-package counsel
+  :ensure t
   :demand t
   :bind (("M-x" . counsel-M-x)
          ("C-c a" . counsel-ag)))

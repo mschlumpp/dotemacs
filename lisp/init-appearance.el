@@ -29,6 +29,7 @@
   (beacon-mode 1))
 
 (use-package spaceline
+  :ensure t
   :config
   (require 'spaceline-config)
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)

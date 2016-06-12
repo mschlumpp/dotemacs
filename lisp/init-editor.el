@@ -31,6 +31,7 @@
   :config
   (global-company-mode 1)
   (global-set-key (kbd "M-TAB") #'company-complete)
+  (setq company-tooltip-align-annotations t)
   (define-key company-active-map (kbd "C-j") #'company-select-next)
   (define-key company-active-map (kbd "C-k") #'company-select-previous)
   (define-key company-active-map (kbd "C-l") #'company-complete-selection)

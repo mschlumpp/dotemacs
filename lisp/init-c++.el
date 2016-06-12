@@ -3,8 +3,9 @@
   (c-add-style "unknown"
                '("java"
                  (c-offsets-alist
-                  (access-label . -2)
-                  (inclass . 2))))
+                  (topmost-intro-cont . 0)
+                  (access-label . -)
+                  (inclass . +))))
   (setq c-default-style "unknown"
         indent-tabs-mode 0
         c-basic-offset 4

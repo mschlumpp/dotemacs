@@ -37,6 +37,7 @@
          ("C-M-8" . rtags-previous-match)
          ("C-M-9" . rtags-next-match))
   :init
+  (add-to-list 'evil-emacs-state-modes 'rtags-mode)
   (add-hook 'c-mode-common-hook (lambda ()
                                  (define-key c-mode-base-map (kbd "M-.") 'rtags-find-symbol-at-point)
                                  (define-key c-mode-base-map (kbd "M-,") 'rtags-location-stack-back))))

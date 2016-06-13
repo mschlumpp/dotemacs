@@ -86,7 +86,8 @@
     ("SPC" nil))
 
   (defhydra hydra-buffer-switch (:hint nil)
-    "[,] prev [.] next"
+    "
+[_,_] prev [_._] next"
     ("," quick-buffer//fix-prev)
     ("." quick-buffer//fix-next))
 

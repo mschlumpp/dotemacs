@@ -52,15 +52,15 @@
   :config
   (defhydra hydra-window (global-map "C-#" :hint nil)
     "
-  ^ Movement ^  │    ^  Splits  ^    │  ^ Buffers  ^  │  ^  Other ^
-─^─────^─┴──^─────^──┴─^─────^─┴─^────^─
- [_h_] ←          [_u_] vertical        [_b_] switch      [_z_] undo
- [_j_] ↓          [_i_] horizontal      [_f_] find file   [_Z_] redo
- [_k_] ↑          [_H_] grow left
- [_l_] →          [_L_] grow right
-  ^ ^              [_K_] grow up
-  ^ ^              [_J_] grow down
- [_SPC_] quit      [_d_] close
+  ^ Movement ^  │   ^  Splits  ^    │  ^ Buffers  ^  │  ^  Other ^
+──^──────────^──┴───^──────────^────┴──^──────────^──┴──^────────^─
+   [_h_] ←         [_u_] vertical     [_b_] switch      [_z_] undo
+   [_j_] ↓         [_i_] horizontal   [_f_] find file   [_Z_] redo
+   [_k_] ↑         [_H_] grow left
+   [_l_] →         [_L_] grow right
+    ^ ^            [_K_] grow up
+    ^ ^            [_J_] grow down
+   [_SPC_] quit    [_d_] close
 "
     ("h" windmove-left)
     ("j" windmove-down)

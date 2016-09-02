@@ -63,7 +63,10 @@
 
 ;;;; clang-format
 (use-package clang-format
-  :bind ("C-<tab>" . clang-format-region))
+  :init
+  (evil-leader/set-key
+    "mff" 'clang-format-buffer
+    "mfr" 'clang-format-region))
 
 ;;;; gdb
 (setq gdb-many-windows t)

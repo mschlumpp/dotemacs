@@ -21,3 +21,4 @@
 (require 'init-python)
 (require 'init-lisp)
 (require 'init-web)
+(require 'init-auto-insert)

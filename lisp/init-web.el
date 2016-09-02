@@ -10,7 +10,7 @@
   (add-hook 'typescript-mode-hook 'xy//setup-tide))
 
 (use-package web-mode
-  :mode ("\\.tsx\\'" "\\.html\\'" "\\.css\\'")
+  :mode ("\\.tsx\\'" "\\.html\\'")
   :init
   (when (package-installed-p 'tide)
     (add-hook 'web-mode-hook
@@ -21,5 +21,11 @@
   :config
   (setq web-mode-engines-alist
         '(("django" . "\\.html\\'"))))
+
+(use-package emmet-mode
+  :init
+  (when (package-installed-p 'web-mode)
+    (add-hook 'web-mode-hook 'emmet-mode)
+    (add-hook 'css-mode-hook 'emmet-mode)))
 
 (provide 'init-web)

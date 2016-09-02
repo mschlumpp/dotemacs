@@ -17,6 +17,9 @@
               (lambda ()
                 (electric-pair-mode -1)
                 (when (string-equal "tsx" (file-name-extension buffer-file-name))
-                  (xy//setup-tide))))))
+                  (xy//setup-tide)))))
+  :config
+  (setq web-mode-engines-alist
+        '(("django" . "\\.html\\'"))))
 
 (provide 'init-web)

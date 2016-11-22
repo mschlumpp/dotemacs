@@ -14,7 +14,8 @@
 (use-package flx
   :ensure t
   :config
-  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy))))
+  (setq ivy-re-builders-alist '((swiper . ivy--regex-plus)
+                                (t . ivy--regex-fuzzy))))
 
 (use-package counsel
   :ensure t

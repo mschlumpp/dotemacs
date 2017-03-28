@@ -4,7 +4,9 @@
 
 (bind-keys*
  ("C-c o" . ff-find-other-file)
- ("C-c m" . switch-to-buffer))
+ ("C-c m" . switch-to-buffer)
+ ("M-n" . next-error)
+ ("M-p" . previous-error))
 
 (use-package projectile
   :ensure t

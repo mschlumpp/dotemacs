@@ -11,12 +11,6 @@
   (define-key ivy-minibuffer-map (kbd "C-h") 'ivy-backward-kill-word)
   (ivy-mode 1))
 
-(use-package flx
-  :ensure t
-  :config
-  (setq ivy-re-builders-alist '((swiper . ivy--regex-plus)
-                                (t . ivy--regex-fuzzy))))
-
 (use-package counsel
   :ensure t
   :demand t

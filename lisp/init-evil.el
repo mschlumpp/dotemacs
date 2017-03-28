@@ -30,6 +30,7 @@
     "bb" 'switch-to-buffer
     "bk" 'kill-buffer
     ;; Windows
+    "qq" 'save-buffers-kill-terminal
     "wc" 'delete-window
     "wm" 'delete-other-windows; TODO: Replace this with maximize-window from spacemacs
     "wv" 'evil-window-vsplit

@@ -9,7 +9,9 @@
   (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)
   (define-key ivy-minibuffer-map (kbd "C-l") 'ivy-alt-done)
   (define-key ivy-minibuffer-map (kbd "C-h") 'ivy-backward-kill-word)
-  (ivy-mode 1))
+  (ivy-mode 1)
+  :init
+  (require 'ivy-hydra))
 
 (use-package counsel
   :ensure t

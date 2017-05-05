@@ -17,6 +17,7 @@
   :ensure t
   :demand t
   :bind (("M-x" . counsel-M-x)
+         ("C-x C-f" . counsel-find-file)
          ("C-c a" . counsel-ag)))
 
 (use-package neotree

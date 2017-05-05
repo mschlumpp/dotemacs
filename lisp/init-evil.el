@@ -2,6 +2,7 @@
   :ensure t
   :config
   (evil-mode 1)
+  (setq evil-want-fine-undo t)
   (define-key evil-motion-state-map (kbd "K") nil)
   (define-key evil-normal-state-map (kbd "M-.") nil))
 

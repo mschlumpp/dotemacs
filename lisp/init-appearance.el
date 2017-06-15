@@ -10,7 +10,7 @@
 
 ;; Font
 (add-to-list 'default-frame-alist
-             '(font . "Input-9"))
+             '(font . "Droid Sans Mono-10"))
 
 (defun xy//remove-bold ()
   (interactive)

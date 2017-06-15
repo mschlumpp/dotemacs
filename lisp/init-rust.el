@@ -8,6 +8,8 @@
                                   (ycmd-mode -1))
                                 (racer-mode 1)
                                 (eldoc-mode 1)
+                                (when (fboundp 'flycheck-mode)
+                                  (flycheck-mode 1))
                                 (local-set-key (kbd "M-.") #'racer-find-definition)
                                 (local-set-key (kbd "TAB") #'company-indent-or-complete-common))))
 

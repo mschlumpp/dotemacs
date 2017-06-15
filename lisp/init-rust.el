@@ -1,5 +1,8 @@
 ;;;; Rust
-(use-package racer
+(req-package rust-mode)
+
+(req-package racer
+  :require rust-mode
   :diminish "ⓡ"
   :init
   (add-hook 'rust-mode-hook #'(lambda ()
@@ -13,7 +16,8 @@
                                 (local-set-key (kbd "M-.") #'racer-find-definition)
                                 (local-set-key (kbd "TAB") #'company-indent-or-complete-common))))
 
-(use-package cargo
+(req-package cargo
+  :require rust-mode
   :init
   (evil-leader/set-key
     "mt" 'cargo-process-test

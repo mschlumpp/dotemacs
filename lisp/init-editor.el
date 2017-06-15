@@ -3,53 +3,49 @@
 (delete-selection-mode t)
 (electric-pair-mode t)
 
-(use-package editorconfig
-  :ensure t
+(req-package editorconfig
   :init
   (editorconfig-mode 1))
 
-(use-package anzu
-  :ensure t
+(req-package anzu
   :demand t
   :bind (("M-%" . anzu-query-replace)
          ("C-M-%" . anzu-query-replace-regexp)))
 
-(use-package expand-region
-  :ensure t
+(req-package expand-region
   :commands er/expand-region
   :bind ("C-+" . er/expand-region))
 
-(use-package undo-tree
+(req-package undo-tree
   :diminish undo-tree-mode
   :ensure t
   :config
   (global-undo-tree-mode 1))
 
-(use-package company
+(req-package company
   :diminish "Ⓒ"
-  :ensure t
   :config
   (global-company-mode 1)
   (global-set-key (kbd "M-TAB") #'company-complete)
   (setq company-tooltip-align-annotations t)
   (define-key company-active-map (kbd "C-j") #'company-select-next)
   (define-key company-active-map (kbd "C-k") #'company-select-previous)
-  (define-key company-active-map (kbd "C-l") #'company-complete-selection)
+  (define-key company-active-map (kbd "C-l") #'company-complete-selection))
 
-  (use-package company-flx
-    :ensure t
-    :config
-    (company-flx-mode 1))
-  (use-package company-statistics
-    :ensure t
-    :config
-    (company-statistics-mode 1))
-  (use-package company-quickhelp
-    :ensure t
-    :config
-    (company-quickhelp-mode 1)))
+(req-package company-flx
+  :requires company
+  :config
+  (company-flx-mode 1))
+(req-package company-statistics
+  :requires company
+  :config
+  (company-statistics-mode 1))
+(req-package company-quickhelp
+  :requires company
+  :config
+  (company-quickhelp-mode 1))
 
-(use-package whitespace-cleanup-mode
+(req-package whitespace-cleanup-mode
   :diminish (whitespace-cleanup-mode . "ⓦ")
   :config
   (global-whitespace-cleanup-mode 1))

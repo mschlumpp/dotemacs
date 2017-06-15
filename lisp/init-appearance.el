@@ -22,14 +22,12 @@
 (setq-default show-trailing-whitespace t
               echo-keystrokes 0.5)
 
-(use-package beacon
+(req-package beacon
   :diminish beacon-mode
-  :ensure t
   :config
   (beacon-mode 1))
 
-(use-package spaceline
-  :ensure t
+(req-package spaceline
   :config
   (require 'spaceline-config)
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)

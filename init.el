@@ -22,3 +22,5 @@
 (require 'init-lisp)
 (require 'init-web)
 (require 'init-auto-insert)
+
+(req-package-finish)

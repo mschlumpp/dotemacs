@@ -44,11 +44,9 @@
   (setq last-command 'iflipb-next-buffer)
   (iflipb-previous-buffer))
 
-(use-package iflipb
-  :ensure t)
+(req-package iflipb)
 
-(use-package hydra
-  :ensure t
+(req-package hydra
   :config
   (defhydra hydra-window (global-map "C-#" :hint nil)
     "
@@ -115,8 +113,7 @@ print:   [_c_] class hierarchy"
 
 
 ;;;; Popwin
-(use-package popwin
-  :demand t
+(req-package popwin
   :defines popwin:keymap
   :config
   (popwin-mode)

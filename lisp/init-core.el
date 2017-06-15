@@ -42,5 +42,7 @@
 (require 'bind-key)
 (ensure-package 'use-package t)
 (require 'use-package)
+(ensure-package 'req-package t)
+(require 'req-package)
 
 (provide 'init-core)

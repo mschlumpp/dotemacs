@@ -26,12 +26,12 @@
               0                           ; no additional indent
             ad-do-it))))
 
-(use-package fic-mode
+(req-package fic-mode
   :commands (turn-on-fic-mode)
   :init
   (add-hook 'c++-mode-hook 'fic-mode))
 
-(use-package cpputils-cmake
+(req-package cpputils-cmake
   :commands cppcm-reload-all
   :init
   (add-hook 'c-mode-common-hook (lambda ()
@@ -40,7 +40,7 @@
   :config
   (setq cppcm-write-flymake-makefile nil))
 
-(use-package rtags
+(req-package rtags
   :commands (rtags-find-symbol-at-point rtags-location-stack-back)
   :bind (("C-c r ," . rtags-find-references-at-point)
          ("C-c r v" . rtags-find-virtuals-at-point)
@@ -56,7 +56,7 @@
                                  (define-key c-mode-base-map (kbd "M-,") 'rtags-location-stack-back))))
 
 ;;;; ycmd
-(use-package ycmd
+(req-package ycmd
   :diminish "ⓨ"
   :init
   (set-variable 'ycmd-server-command '("python" "/home/marco/.emacs.d/ycmd/ycmd"))
@@ -67,16 +67,16 @@
     (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup))
   (global-ycmd-mode 1))
 
-(use-package company-ycmd
+(req-package company-ycmd
   :config
   (company-ycmd-setup))
 
-(use-package flycheck-ycmd
+(req-package flycheck-ycmd
   :config
   (flycheck-ycmd-setup))
 
 ;;;; clang-format
-(use-package clang-format
+(req-package clang-format
   :init
   (evil-leader/set-key
     "mff" 'clang-format-buffer

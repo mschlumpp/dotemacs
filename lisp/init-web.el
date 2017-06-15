@@ -5,11 +5,11 @@
   (eldoc-mode 1)
   (company-mode-on))
 
-(use-package tide
+(req-package tide
   :init
   (add-hook 'typescript-mode-hook 'xy//setup-tide))
 
-(use-package web-mode
+(req-package web-mode
   :mode ("\\.tsx\\'" "\\.html\\'")
   :init
   (when (package-installed-p 'tide)
@@ -22,7 +22,7 @@
   (setq web-mode-engines-alist
         '(("django" . "\\.html\\'"))))
 
-(use-package emmet-mode
+(req-package emmet-mode
   :init
   (when (package-installed-p 'web-mode)
     (add-hook 'web-mode-hook 'emmet-mode)

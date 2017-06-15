@@ -1,22 +1,21 @@
-(use-package evil
-  :ensure t
+(req-package evil
   :config
   (evil-mode 1)
   (setq evil-want-fine-undo t)
   (define-key evil-motion-state-map (kbd "K") nil)
   (define-key evil-normal-state-map (kbd "M-.") nil))
 
-(use-package evil-escape
+(req-package evil-escape
   :diminish evil-escape-mode
-  :ensure t
+  :require evil
   :config
   (evil-escape-mode 1)
   (setq-default evil-escape-delay 0.05)
   (setq-default evil-escape-unordered-key-sequence t)
   (setq-default evil-escape-key-sequence "jk"))
 
-(use-package evil-leader
-  :ensure t
+(req-package evil-leader
+  :require evil
   :config
   (global-evil-leader-mode 1)
   (evil-leader/set-leader "<SPC>")

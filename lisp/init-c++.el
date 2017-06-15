@@ -62,6 +62,7 @@
   (set-variable 'ycmd-server-command '("python" "/home/marco/.emacs.d/ycmd/ycmd"))
   (set-variable 'ycmd-extra-conf-whitelist '("~/Projekte/*"))
   :config
+  (setq-default ycmd-parse-conditions '(save new-line idle-change))
   (when (require 'ycmd-eldoc nil t)
     (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup))
   (global-ycmd-mode 1))

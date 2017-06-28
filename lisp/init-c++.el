@@ -41,6 +41,7 @@
   (setq cppcm-write-flymake-makefile nil))
 
 (req-package rtags
+  :requires (hydra)
   :commands (rtags-find-symbol-at-point rtags-location-stack-back)
   :bind (("C-c r ," . rtags-find-references-at-point)
          ("C-c r v" . rtags-find-virtuals-at-point)
@@ -53,7 +54,22 @@
   (add-to-list 'evil-emacs-state-modes 'rtags-mode)
   (add-hook 'c-mode-common-hook (lambda ()
                                  (define-key c-mode-base-map (kbd "M-.") 'rtags-find-symbol-at-point)
-                                 (define-key c-mode-base-map (kbd "M-,") 'rtags-location-stack-back))))
+                                 (define-key c-mode-base-map (kbd "M-,") 'rtags-location-stack-back)))
+  :config
+  (defhydra hydra-rtags-navigation (:hint nil :foreign-keys run)
+    "
+         [_ö_] quit
+matches: [_p_] previous [_n_] next [_,_] back
+search:  [_._] symbol   [_r_] refs [_v_] virtuals
+print:   [_c_] class hierarchy"
+    ("n" rtags-next-match)
+    ("p" rtags-previous-match)
+    ("," rtags-location-stack-back)
+    ("." rtags-find-symbol-at-point)
+    ("r" rtags-find-references-at-point)
+    ("v" rtags-find-virtuals-at-point)
+    ("c" rtags-print-class-hierarchy)
+    ("ö" nil)))
 
 ;;;; ycmd
 (req-package ycmd

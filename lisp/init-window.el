@@ -89,21 +89,6 @@
     ("," quick-buffer//fix-prev)
     ("." quick-buffer//fix-next))
 
-  (defhydra hydra-rtags-navigation (:hint nil :foreign-keys run)
-    "
-         [_ö_] quit
-matches: [_p_] previous [_n_] next [_,_] back
-search:  [_._] symbol   [_r_] refs [_v_] virtuals
-print:   [_c_] class hierarchy"
-    ("n" rtags-next-match)
-    ("p" rtags-previous-match)
-    ("," rtags-location-stack-back)
-    ("." rtags-find-symbol-at-point)
-    ("r" rtags-find-references-at-point)
-    ("v" rtags-find-virtuals-at-point)
-    ("c" rtags-print-class-hierarchy)
-    ("ö" nil))
-
   (evil-leader/set-key
     "ö" 'hydra-rtags-navigation/body
     "." (lambda ()

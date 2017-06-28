@@ -8,6 +8,9 @@
 (blink-cursor-mode -1)
 (column-number-mode t)
 
+;; Set frames by default maximized
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 ;; Font
 (add-to-list 'default-frame-alist
              '(font . "Droid Sans Mono-10"))

@@ -2,17 +2,13 @@
 (req-package rust-mode)
 
 (req-package racer
-  :require rust-mode
+  :require (flycheck rust-mode)
   :diminish "ⓡ"
   :init
   (add-hook 'rust-mode-hook #'(lambda ()
-                                ;; Disable ycmd because it doesn't work with racer...
-                                (when (fboundp 'ycmd-mode)
-                                  (ycmd-mode -1))
                                 (racer-mode 1)
                                 (eldoc-mode 1)
-                                (when (fboundp 'flycheck-mode)
-                                  (flycheck-mode 1))
+                                (flycheck-mode 1)
                                 (local-set-key (kbd "M-.") #'racer-find-definition)
                                 (local-set-key (kbd "TAB") #'company-indent-or-complete-common))))
 

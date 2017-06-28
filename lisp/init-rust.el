@@ -3,6 +3,7 @@
 
 (req-package racer
   :require (flycheck rust-mode)
+  :commands (racer-mode)
   :diminish "ⓡ"
   :init
   (add-hook 'rust-mode-hook #'(lambda ()

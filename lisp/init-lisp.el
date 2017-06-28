@@ -4,8 +4,8 @@
   (paredit-mode 1))
 
 (req-package slime
+  :require (paredit slime-company)
   :commands (slime)
-  :require paredit slime-company
   :init
   (add-hook 'slime-mode-hook 'use-paredit)
   (add-hook 'slime-repl-mode-hook 'use-paredit)

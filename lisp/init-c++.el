@@ -75,24 +75,28 @@ print:   [_c_] class hierarchy"
 (req-package ycmd
   :diminish "ⓨ"
   :init
-  (set-variable 'ycmd-server-command '("python" "/home/marco/.emacs.d/ycmd/ycmd"))
-  (set-variable 'ycmd-extra-conf-whitelist '("~/Projekte/*"))
   (add-hook 'c++-mode-hook #'(lambda ()
                                (ycmd-mode 1)))
   :config
-  (setq-default ycmd-parse-conditions '(save new-line idle-change))
-  (when (require 'ycmd-eldoc nil t)
-    (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup)))
+  (setq ycmd-extra-conf-whitelist '("~/Projekte/*")
+        ycmd-parse-conditions '(save new-line idle-change)))
+
+(req-package ycmd-eldoc
+  :requires (ycmd)
+  :commands (ycmd-eldoc-setup)
+  :init
+  (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup))
 
 (req-package company-ycmd
   :requires (ycmd company)
+  :commands (company-ycmd-setup)
   :init
-  (add-hook 'ycmd-mode-hook (company-ycmd-setup)))
+  (add-hook 'ycmd-mode-hook #'company-ycmd-setup))
 
 (req-package flycheck-ycmd
   :requires (ycmd flycheck)
   :init
-  (add-hook 'ycmd-mode-hook (flycheck-ycmd-setup)))
+  (add-hook 'ycmd-mode-hook #'flycheck-ycmd-setup))
 
 ;;;; clang-format
 (req-package clang-format

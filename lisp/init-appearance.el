@@ -13,7 +13,7 @@
 
 ;; Font
 (add-to-list 'default-frame-alist
-             '(font . "Droid Sans Mono-10"))
+             '(font . "Iosevka Term-11"))
 
 (defun xy//remove-bold ()
   (interactive)

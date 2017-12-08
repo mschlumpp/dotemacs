@@ -1,8 +1,10 @@
 ;; Add custom theme path
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory (convert-standard-filename "themes/")))
 
-(req-package material-theme
+(req-package doom-themes
   :config
-  (load-theme 'material-light t))
+  (if (equal (system-name) "archbox")
+      (load-theme 'doom-one t)
+    (load-theme 'doom-one-light t)))
 
 (provide 'init-theme)

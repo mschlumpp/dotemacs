@@ -1,7 +1,4 @@
-(req-package diminish
-  :config
-  (diminish 'auto-revert-mode "ⓐ")
-  (diminish 'eldoc-mode "Ⓓ"))
+(req-package diminish)
 
 (req-package magit
   :commands magit-status

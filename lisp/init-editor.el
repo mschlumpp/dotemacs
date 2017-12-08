@@ -23,7 +23,6 @@
   (global-undo-tree-mode 1))
 
 (req-package company
-  :diminish "Ⓒ"
   :config
   (global-company-mode 1)
   (global-set-key (kbd "M-TAB") #'company-complete)
@@ -46,7 +45,6 @@
   (company-quickhelp-mode 1))
 
 (req-package whitespace-cleanup-mode
-  :diminish (whitespace-cleanup-mode . "ⓦ")
   :config
   (global-whitespace-cleanup-mode 1))
 

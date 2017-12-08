@@ -73,7 +73,6 @@ print:   [_c_] class hierarchy"
 
 ;;;; ycmd
 (req-package ycmd
-  :diminish "ⓨ"
   :init
   (add-hook 'c++-mode-hook #'(lambda ()
                                (ycmd-mode 1)))

@@ -1,5 +1,6 @@
 ;;;; Rust
-(req-package rust-mode)
+(req-package rust-mode
+  :commands (rust-mode))
 
 (req-package racer
   :require (flycheck rust-mode)

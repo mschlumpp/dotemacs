@@ -40,15 +40,6 @@
   :config
   (setq cppcm-write-flymake-makefile nil))
 
-(req-package lsp-mode)
-
-(req-package company-lsp
-  :requires lsp-mode
-  :init
-  (push 'company-lsp company-backends)
-  :config
-  (setq company-lsp-async t))
-
 (req-package cquery
   :requires lsp-mode
   :commands (lsp-cquery-enable)

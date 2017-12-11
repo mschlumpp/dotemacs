@@ -16,6 +16,7 @@
 (require 'init-utils)
 (require 'init-window)
 (require 'init-buffer)
+(require 'init-lsp)
 (require 'init-c++)
 (require 'init-rust)
 (require 'init-python)

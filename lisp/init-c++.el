@@ -41,12 +41,14 @@
   (setq cppcm-write-flymake-makefile nil))
 
 (req-package cquery
-  :commands (lsp-cquery-enable)
-  :loader :path
-  :load-path "~/src/cquery/emacs/"
   :require lsp-mode
+  :commands (lsp-cquery-enable)
   :init
-  (add-hook 'c++-mode-hook 'lsp-cquery-enable))
+  (add-hook 'c++-mode-hook 'lsp-cquery-enable)
+  :config
+  (setq cquery-extra-init-params '(:index (:comments 2) :cacheFormat "msgpack"))
+  (setq cquery-sem-highlight-method 'overlay)
+  (cquery-use-default-rainbow-sem-highlight))
 
 ;;;; clang-format
 (req-package clang-format

@@ -41,10 +41,10 @@
   (setq cppcm-write-flymake-makefile nil))
 
 (req-package cquery
-  :requires lsp-mode
   :commands (lsp-cquery-enable)
   :loader :path
   :load-path "~/src/cquery/emacs/"
+  :require lsp-mode
   :init
   (add-hook 'c++-mode-hook 'lsp-cquery-enable))
 

@@ -11,7 +11,7 @@
   (ivy-mode 1))
 
 (req-package ivy-xref
-  :requires swiper
+  :require swiper
   :commands ivy-xref-show-xrefs
   :init
   (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))

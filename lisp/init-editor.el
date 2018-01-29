@@ -32,15 +32,15 @@
   (define-key company-active-map (kbd "C-l") #'company-complete-selection))
 
 (req-package company-flx
-  :requires company
+  :require company
   :config
   (company-flx-mode 1))
 (req-package company-statistics
-  :requires company
+  :require company
   :config
   (company-statistics-mode 1))
 (req-package company-quickhelp
-  :requires company
+  :require company
   :config
   (company-quickhelp-mode 1))
 

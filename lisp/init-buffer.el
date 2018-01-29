@@ -5,6 +5,7 @@
 (bind-keys*
  ("C-c o" . ff-find-other-file)
  ("C-c m" . switch-to-buffer)
+ ("M-ß" . xref-find-references)
  ("M-n" . next-error)
  ("M-p" . previous-error))
 

@@ -2,16 +2,12 @@
 (req-package rust-mode
   :commands (rust-mode))
 
-(req-package racer
-  :require (flycheck rust-mode)
-  :commands (racer-mode)
+(req-package lsp-rust
+  :require rust-mode lsp-mode
   :init
-  (add-hook 'rust-mode-hook #'(lambda ()
-                                (racer-mode 1)
-                                (eldoc-mode 1)
-                                (flycheck-mode 1)
-                                (local-set-key (kbd "M-.") #'racer-find-definition)
-                                (local-set-key (kbd "TAB") #'company-indent-or-complete-common))))
+  (add-hook 'rust-mode-hook #'lsp-rust-enable)
+  :config
+  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
 
 (req-package cargo
   :require rust-mode

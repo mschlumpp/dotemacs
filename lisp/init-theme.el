@@ -5,6 +5,7 @@
   :config
   (if (equal (system-name) "archbox")
       (load-theme 'doom-one t)
-    (load-theme 'doom-one-light t)))
+    (load-theme 'doom-one-light t))
+  (fringe-mode nil))
 
 (provide 'init-theme)

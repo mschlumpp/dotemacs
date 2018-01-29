@@ -41,10 +41,31 @@
   (setq cppcm-write-flymake-makefile nil))
 
 (req-package cquery
-  :require lsp-mode
+  :require lsp-mode lsp-ui hydra
   :commands (lsp-cquery-enable)
   :init
   (add-hook 'c++-mode-hook 'lsp-cquery-enable)
+  ;; (defhydra cquery-navigation (:hint "cquery")
+  ;;   ("b" (lambda ()
+  ;;          (interactive)
+  ;;          (lsp-ui-peek-find-custom 'base "$cquery/base"))))
+  (defun xy//cquery-find-base ()
+    (interactive)
+    (lsp-ui-peek-find-custom 'base "$cquery/base"))
+  (defun xy//cquery-find-callers ()
+    (interactive)
+    (lsp-ui-peek-find-custom 'callers "$cquery/callers"))
+  (defun xy//cquery-find-vars ()
+    (interactive)
+    (lsp-ui-peek-find-custom 'vars "$cquery/vars"))
+  (defun xy//cquery-find-derived ()
+    (interactive)
+    (lsp-ui-peek-find-custom 'derived "$cquery/derived"))
+  (evil-leader/set-key-for-mode 'c++-mode
+    "n b" 'xy//cquery-find-base
+    "n c" 'xy//cquery-find-callers
+    "n v" 'xy//cquery-find-vars
+    "n d" 'xy//cquery-find-derived)
   :config
   (setq cquery-extra-init-params '(:index (:comments 2) :cacheFormat "msgpack"))
   (setq cquery-sem-highlight-method 'overlay)

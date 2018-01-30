@@ -20,9 +20,12 @@
   :require swiper)
 
 (req-package counsel
+  :require evil-leader
   :demand t
-  :bind (("M-x" . counsel-M-x)
-         ("C-x C-f" . counsel-find-file)))
+  :config
+  (counsel-mode 1)
+  (evil-leader/set-key
+    "h" 'counsel-fzf))
 
 (req-package neotree
   :commands neotree-toggle

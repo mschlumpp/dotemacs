@@ -45,10 +45,6 @@
   :commands (lsp-cquery-enable)
   :init
   (add-hook 'c++-mode-hook 'lsp-cquery-enable)
-  ;; (defhydra cquery-navigation (:hint "cquery")
-  ;;   ("b" (lambda ()
-  ;;          (interactive)
-  ;;          (lsp-ui-peek-find-custom 'base "$cquery/base"))))
   (defun xy//cquery-find-base ()
     (interactive)
     (lsp-ui-peek-find-custom 'base "$cquery/base"))

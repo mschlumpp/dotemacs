@@ -45,4 +45,7 @@
 (ensure-package 'req-package t)
 (require 'req-package)
 
+(setq use-package-always-ensure t)
+(setq use-package-compute-statistics t)
+
 (provide 'init-core)

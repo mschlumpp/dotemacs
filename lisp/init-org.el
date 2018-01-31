@@ -1,4 +1,5 @@
 (req-package org-mode
+  :ensure nil
   :bind (("C-c g" . org-agenda)
          ("C-c c" . org-capture))
   :init

@@ -44,6 +44,7 @@
   :require lsp-mode lsp-ui hydra
   :commands (lsp-cquery-enable)
   :init
+  (add-hook 'c-mode-hook 'lsp-cquery-enable)
   (add-hook 'c++-mode-hook 'lsp-cquery-enable)
   (defun xy//cquery-find-base ()
     (interactive)

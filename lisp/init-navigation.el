@@ -21,6 +21,7 @@
 
 (req-package counsel
   :require evil-leader
+  :diminish
   :demand t
   :config
   (counsel-mode 1)

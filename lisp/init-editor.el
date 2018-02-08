@@ -4,6 +4,7 @@
 (electric-pair-mode t)
 
 (req-package editorconfig
+  :diminish
   :init
   (editorconfig-mode 1))
 

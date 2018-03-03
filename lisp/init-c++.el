@@ -66,7 +66,24 @@
   :config
   (setq cquery-extra-init-params '(:index (:comments 2) :cacheFormat "msgpack"))
   (setq cquery-sem-highlight-method 'overlay)
-  (cquery-use-default-rainbow-sem-highlight))
+  (cquery-use-default-rainbow-sem-highlight)
+  (add-to-list 'cquery--handlers '("$cquery/progress" .
+                                   (lambda (w p)
+                                     (let* ((indexRequestCount (gethash "indexRequestCount" p))
+                                            (doIdMapCount (gethash "doIdMapCount" p))
+                                            (loadPreviousIndexCount (gethash "loadPreviousIndexCount" p))
+                                            (onIdMappedCount (gethash "onIdMappedCount" p))
+                                            (onIndexedCount (gethash "onIndexedCount" p))
+                                            (activeThreads (gethash "activeThreads" p))
+                                            (total (+ indexRequestCount
+                                                      doIdMapCount
+                                                      loadPreviousIndexCount
+                                                      onIdMappedCount
+                                                      onIndexedCount
+                                                      activeThreads)))
+                                       (if (eql total 0)
+                                           (setq lsp-status "(idle)")
+                                         (setq lsp-status (format "(%d/%d jobs)" activeThreads total)))))) t))
 
 ;;;; clang-format
 (req-package clang-format

@@ -64,6 +64,8 @@
     "n v" 'xy//cquery-find-vars
     "n d" 'xy//cquery-find-derived)
   :config
+  (add-to-list 'evil-emacs-state-modes 'cquery-tree-mode)
+
   (setq company-transformers nil
         company-lsp-async t
         company-lsp-cache-candidates nil)

@@ -64,6 +64,9 @@
     "n v" 'xy//cquery-find-vars
     "n d" 'xy//cquery-find-derived)
   :config
+  (setq company-transformers nil
+        company-lsp-async t
+        company-lsp-cache-candidates nil)
   (setq cquery-extra-init-params '(:index (:comments 2) :cacheFormat "msgpack"))
   (setq cquery-sem-highlight-method 'overlay)
   (cquery-use-default-rainbow-sem-highlight)

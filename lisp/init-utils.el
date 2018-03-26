@@ -21,6 +21,14 @@
   :diminish which-key-mode
   :config
   (which-key-mode 1)
-  (which-key-setup-minibuffer))
+  (which-key-setup-minibuffer)
+  (which-key-add-key-based-replacements
+    "SPC w" "window"
+    "SPC m" "mode"
+    "SPC ." "next buffer"
+    "SPC f" "file"
+    "SPC b" "buffer"
+    "SPC g" "git"
+    "SPC q" "quit"))
 
 (provide 'init-utils)

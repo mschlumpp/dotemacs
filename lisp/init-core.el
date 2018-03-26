@@ -7,7 +7,7 @@
       mouse-wheel-progressive-speed nil)
 
 ;; Truncate long lines
-(toggle-truncate-lines 1)
+(setq-default truncate-lines 1)
 
 ;; Backup files
 (setq backup-directory-alist `(("." . "~/.saves"))

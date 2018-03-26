@@ -47,6 +47,7 @@
 (req-package iflipb)
 
 (req-package hydra
+  :require iflipb
   :config
   (defhydra hydra-window (global-map "C-#" :hint nil)
     "
@@ -90,7 +91,6 @@
     ("." quick-buffer//fix-next))
 
   (evil-leader/set-key
-    "ö" 'hydra-rtags-navigation/body
     "." (lambda ()
           (interactive)
           (iflipb-next-buffer nil)

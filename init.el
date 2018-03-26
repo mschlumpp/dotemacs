@@ -20,7 +20,6 @@
 (require 'init-c++)
 (require 'init-rust)
 (require 'init-python)
-(require 'init-lisp)
 (require 'init-web)
 (require 'init-auto-insert)
 (require 'init-org)

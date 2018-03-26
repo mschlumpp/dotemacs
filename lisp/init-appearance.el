@@ -37,4 +37,10 @@
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
   (spaceline-spacemacs-theme))
 
+(req-package fringe-helper
+  :commands fringe-helper-define
+  :init
+  (unless (fboundp 'define-fringe-bitmap)
+    (defun define-fringe-bitmap (&rest _))))
+
 (provide 'init-appearance)

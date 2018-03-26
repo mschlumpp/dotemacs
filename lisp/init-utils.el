@@ -17,6 +17,30 @@
   :init
   (require 'evil-magit))
 
+(req-package git-gutter-fringe
+  :require fringe-helper
+  :commands git-gutter-mode
+  :init
+  (defun xy//git-gutter-maybe ()
+    (when (and (buffer-file-name)
+               (not (file-remote-p (buffer-file-name))))
+      (git-gutter-mode t)))
+  (add-hook 'prog-mode-hook #'xy//git-gutter-maybe)
+  (add-hook 'text-mode-hook #'xy//git-gutter-maybe)
+  (add-hook 'conf-mode-hook #'xy//git-gutter-maybe)
+  (evil-leader/set-key
+    "gd" 'git-gutter:popup-diff)
+  :config
+  (fringe-helper-define 'git-gutter-fr:added '(center repeated)
+    "XXX.....")
+  (fringe-helper-define 'git-gutter-fr:modified '(center repeated)
+    "XXX.....")
+  (fringe-helper-define 'git-gutter-fr:deleted 'bottom
+    "X......."
+    "XX......"
+    "XXX....."
+    "XXXX...."))
+
 (req-package git-timemachine
   :require evil-leader
   :commands git-timemachine

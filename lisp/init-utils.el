@@ -17,6 +17,15 @@
   :init
   (require 'evil-magit))
 
+(req-package git-timemachine
+  :require evil-leader
+  :init
+  (evil-leader/set-key
+    "gt" 'git-timemachine)
+  :config
+  (evil-make-overriding-map git-timemachine-mode-map 'normal)
+  (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps))
+
 (req-package which-key
   :diminish which-key-mode
   :config

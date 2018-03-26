@@ -52,4 +52,9 @@
   :config
   (global-whitespace-cleanup-mode 1))
 
+(req-package markdown-mode
+  :defer t
+  :init
+  (add-hook 'markdown-mode-hook #'(lambda () (setq truncate-lines nil))))
+
 (provide 'init-editor)

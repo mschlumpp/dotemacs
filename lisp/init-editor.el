@@ -3,6 +3,9 @@
 (delete-selection-mode t)
 (electric-pair-mode t)
 
+(bind-keys*
+ ("C-;" . comment-line))
+
 (req-package editorconfig
   :diminish
   :init

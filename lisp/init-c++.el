@@ -92,6 +92,7 @@
 
 ;;;; clang-format
 (req-package clang-format
+  :commands (clang-format-buffer clang-format-region)
   :init
   (evil-leader/set-key
     "mff" 'clang-format-buffer

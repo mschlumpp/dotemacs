@@ -19,6 +19,7 @@
 
 (req-package git-timemachine
   :require evil-leader
+  :commands git-timemachine
   :init
   (evil-leader/set-key
     "gt" 'git-timemachine)

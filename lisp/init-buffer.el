@@ -15,10 +15,13 @@
   :bind-keymap ("C-c p" . projectile-command-map)
   :commands (projectile-project-root)
   :init
-  (bind-key "C-c a" (lambda ()
-                      "Run counsel-rg in the current project root"
-                      (interactive)
-                      (counsel-rg nil (projectile-project-root))))
+  (defun xy//search-rg ()
+    (interactive)
+    (counsel-rg nil (projectile-project-root)))
+  (evil-leader/set-key
+    "p" projectile-command-map
+    "a" 'xy//search-rg)
+  (bind-key "C-c a" 'xy//search-rg)
   :config
   (setq projectile-completion-system 'default)
   (projectile-global-mode 1))

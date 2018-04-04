@@ -17,8 +17,8 @@
   :init
   (require 'evil-magit))
 
-(req-package git-gutter-fringe
-  :require fringe-helper
+(req-package git-gutter
+  :require evil-leader
   :commands git-gutter-mode
   :init
   (defun xy//git-gutter-maybe ()
@@ -29,8 +29,12 @@
   (add-hook 'text-mode-hook #'xy//git-gutter-maybe)
   (add-hook 'conf-mode-hook #'xy//git-gutter-maybe)
   (evil-leader/set-key
-    "gd" 'git-gutter:popup-diff)
+    "gd" 'git-gutter:popup-diff))
+
+(req-package git-gutter-fringe
+  :require git-gutter
   :config
+  (require 'git-gutter-fringe)
   (fringe-helper-define 'git-gutter-fr:added '(center repeated)
     "XXX.....")
   (fringe-helper-define 'git-gutter-fr:modified '(center repeated)

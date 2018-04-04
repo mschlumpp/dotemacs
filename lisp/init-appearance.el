@@ -38,7 +38,6 @@
   (spaceline-spacemacs-theme))
 
 (req-package fringe-helper
-  :commands fringe-helper-define
   :init
   (unless (fboundp 'define-fringe-bitmap)
     (defun define-fringe-bitmap (&rest _))))

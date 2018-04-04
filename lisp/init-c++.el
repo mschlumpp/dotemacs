@@ -95,7 +95,7 @@
   :config
   (add-to-list 'evil-emacs-state-modes 'cquery-tree-mode)
 
-  (setq cquery-extra-init-params '(:index (:comments 2) :cacheFormat "msgpack"))
+  (setq cquery-extra-init-params '(:index (:comments 2) :completion (:detailedLabel t) :cacheFormat "msgpack"))
   (setq cquery-sem-highlight-method 'overlay)
   (cquery-use-default-rainbow-sem-highlight)
   (add-to-list 'cquery--handlers '("$cquery/progress" . xy//cquery-handle-progress) t))

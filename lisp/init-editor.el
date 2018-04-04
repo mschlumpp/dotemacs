@@ -57,4 +57,7 @@
   :init
   (add-hook 'markdown-mode-hook #'(lambda () (setq truncate-lines nil))))
 
+(req-package yasnippet
+  :commands yas-minor-mode)
+
 (provide 'init-editor)

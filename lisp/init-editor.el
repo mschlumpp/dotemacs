@@ -48,9 +48,10 @@
   :config
   (company-quickhelp-mode 1))
 
-(req-package whitespace-cleanup-mode
+(req-package ws-butler
   :config
-  (global-whitespace-cleanup-mode 1))
+  (add-hook 'prog-mode-hook #'ws-butler-mode)
+  (add-hook 'conf-mode-hook #'ws-butler-mode))
 
 (req-package markdown-mode
   :defer t

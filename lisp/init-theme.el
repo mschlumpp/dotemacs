@@ -3,7 +3,7 @@
 
 (req-package doom-themes
   :config
-  (if (equal (system-name) "archbox")
+  (if (equal (system-name) "nixos")
       (load-theme 'doom-one t)
     (load-theme 'doom-one-light t))
   (fringe-mode nil))

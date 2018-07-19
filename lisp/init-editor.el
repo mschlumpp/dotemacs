@@ -51,11 +51,14 @@
 (req-package ws-butler
   :config
   (add-hook 'prog-mode-hook #'ws-butler-mode)
-  (add-hook 'conf-mode-hook #'ws-butler-mode))
+  (add-hook 'conf-mode-hook #'ws-butler-mode)
+  (add-hook 'org-mode-hook #'ws-butler-mode))
 
 (req-package markdown-mode
   :defer t
+  :require ws-butler
   :init
+  (add-hook 'markdown-mode-hook #'ws-butler-mode)
   (add-hook 'markdown-mode-hook #'(lambda () (setq truncate-lines nil))))
 
 (req-package yasnippet

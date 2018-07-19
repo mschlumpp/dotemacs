@@ -63,23 +63,6 @@
   (interactive)
   (lsp-ui-peek-find-custom 'derived "$cquery/derived"))
 
-(defun xy//cquery-handle-progress (w p)
-  (let* ((indexRequestCount (gethash "indexRequestCount" p))
-         (doIdMapCount (gethash "doIdMapCount" p))
-         (loadPreviousIndexCount (gethash "loadPreviousIndexCount" p))
-         (onIdMappedCount (gethash "onIdMappedCount" p))
-         (onIndexedCount (gethash "onIndexedCount" p))
-         (activeThreads (gethash "activeThreads" p))
-         (total (+ indexRequestCount
-                   doIdMapCount
-                   loadPreviousIndexCount
-                   onIdMappedCount
-                   onIndexedCount
-                   activeThreads)))
-    (if (eql total 0)
-        (setq lsp-status "(idle)")
-      (setq lsp-status (format "(%d/%d jobs)" activeThreads total)))))
-
 (req-package cquery
   :require (lsp-mode lsp-ui hydra)
   :commands (lsp-cquery-enable)
@@ -97,8 +80,7 @@
 
   (setq cquery-extra-init-params '(:index (:comments 2) :completion (:detailedLabel t) :cacheFormat "msgpack"))
   (setq cquery-sem-highlight-method 'overlay)
-  (cquery-use-default-rainbow-sem-highlight)
-  (add-to-list 'cquery--handlers '("$cquery/progress" . xy//cquery-handle-progress) t))
+  (cquery-use-default-rainbow-sem-highlight))
 
 ;;;; clang-format
 (req-package clang-format

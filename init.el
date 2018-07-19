@@ -21,6 +21,7 @@
 (require 'init-buffer)
 (require 'init-lsp)
 (require 'init-c++)
+(require 'init-tex)
 (require 'init-rust)
 (require 'init-python)
 (require 'init-web)

@@ -3,7 +3,9 @@
   :demand t
   :bind (("C-s" . swiper))
   :config
-  (setq ivy-use-virtual-buffers t)
+  (setq ivy-use-virtual-buffers t
+        ivy-virtual-abbreviate 'full
+        ivy-extra-directories nil) ;; Remove .. and .
   (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
   (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)
   (define-key ivy-minibuffer-map (kbd "C-l") 'ivy-alt-done)

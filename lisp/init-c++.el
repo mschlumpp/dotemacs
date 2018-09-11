@@ -59,10 +59,6 @@
   (interactive)
   (lsp-ui-peek-find-custom 'vars "$cquery/vars"))
 
-(defun xy//cquery-find-derived ()
-  (interactive)
-  (lsp-ui-peek-find-custom 'derived "$cquery/derived"))
-
 (req-package cquery
   :require (lsp-mode lsp-ui hydra)
   :commands (lsp-cquery-enable)
@@ -72,8 +68,7 @@
   (evil-leader/set-key-for-mode 'c++-mode
     "n b" 'xy//cquery-find-base
     "n c" 'xy//cquery-find-callers
-    "n v" 'xy//cquery-find-vars
-    "n d" 'xy//cquery-find-derived)
+    "n v" 'xy//cquery-find-vars)
 
   :config
   (add-to-list 'evil-emacs-state-modes 'cquery-tree-mode)

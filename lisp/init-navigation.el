@@ -10,6 +10,11 @@
   (define-key ivy-minibuffer-map (kbd "C-h") 'ivy-backward-kill-word)
   (ivy-mode 1))
 
+(req-package ivy-rich
+  :require swiper
+  :config
+  (ivy-rich-mode))
+
 (req-package ivy-xref
   :require swiper
   :commands ivy-xref-show-xrefs

@@ -31,12 +31,6 @@
   :config
   (beacon-mode 1))
 
-(req-package spaceline
-  :config
-  (require 'spaceline-config)
-  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-  (spaceline-spacemacs-theme))
-
 (req-package fringe-helper
   :init
   (unless (fboundp 'define-fringe-bitmap)

@@ -1,4 +1,9 @@
-(req-package lsp-mode)
+(req-package lsp-mode
+  :config
+  (evil-leader/set-key
+    "mff" 'lsp-format-buffer
+    "mfr" 'lsp-format-region
+    "ma" 'lsp-execute-code-action))
 
 (req-package lsp-ui
   :require lsp-mode

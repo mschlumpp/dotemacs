@@ -77,14 +77,6 @@
   (setq cquery-sem-highlight-method 'overlay)
   (cquery-use-default-rainbow-sem-highlight))
 
-;;;; clang-format
-(req-package clang-format
-  :commands (clang-format-buffer clang-format-region)
-  :init
-  (evil-leader/set-key
-    "mff" 'clang-format-buffer
-    "mfr" 'clang-format-region))
-
 ;;;; gdb
 (setq gdb-many-windows t)
 

@@ -8,7 +8,9 @@
 (req-package magit
   :commands magit-status
   :init
-  (evil-leader/set-key "gs" 'magit-status)
+  (evil-leader/set-key
+    "gs" 'magit-status
+    "gp" 'magit-file-popup)
   :config
   (setq magit-last-seen-setup-instructions "1.4.0"))
 

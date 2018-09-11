@@ -18,11 +18,10 @@
   (defun xy//search-rg ()
     (interactive)
     (counsel-rg nil (projectile-project-root)))
-  (bind-key "C-c a" 'xy//search-rg)
-  :config
   (evil-leader/set-key
     "p" projectile-command-map
     "a" 'xy//search-rg)
+  :config
   (setq projectile-completion-system 'default)
   (projectile-global-mode 1))
 

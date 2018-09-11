@@ -20,7 +20,7 @@
   :require swiper)
 
 (req-package counsel
-  :require evil-leader
+  :require (evil-leader smex)
   :diminish
   :demand t
   :config

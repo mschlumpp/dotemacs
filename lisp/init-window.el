@@ -105,8 +105,7 @@
   (global-set-key (kbd "C-c w") popwin:keymap)
   (add-to-list 'popwin:special-display-config '("*git-gutter:diff*" :noselect t))
   (add-to-list 'popwin:special-display-config '("*RTags*" :stick t :noselect t :position bottom :width 60))
-  (add-to-list 'popwin:special-display-config '("*Cargo Test*" :noselect t))
-  (add-to-list 'popwin:special-display-config '("*Cargo Build*" :noselect t))
+  (add-to-list 'popwin:special-display-config '("\\*Cargo \\w+\\*" :regexp t :noselect t))
   (add-to-list 'popwin:special-display-config '("*Flycheck errors*" :noselect t)))
 
 (provide 'init-window)

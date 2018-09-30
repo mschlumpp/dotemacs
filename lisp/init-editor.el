@@ -49,10 +49,7 @@
   (company-quickhelp-mode 1))
 
 (req-package ws-butler
-  :config
-  (add-hook 'prog-mode-hook #'ws-butler-mode)
-  (add-hook 'conf-mode-hook #'ws-butler-mode)
-  (add-hook 'org-mode-hook #'ws-butler-mode))
+  :hook ((prog-mode conf-mode org-mode) . ws-butler-mode))
 
 (req-package markdown-mode
   :defer t
@@ -61,7 +58,6 @@
   (add-hook 'markdown-mode-hook #'ws-butler-mode)
   (add-hook 'markdown-mode-hook #'(lambda () (setq truncate-lines nil))))
 
-(req-package yasnippet
-  :commands yas-minor-mode)
+(req-package yasnippet)
 
 (provide 'init-editor)

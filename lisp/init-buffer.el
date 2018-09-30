@@ -27,9 +27,7 @@
 
 ;;;; Flycheck
 (req-package flycheck
-  :commands flycheck-mode-on-safe
-  :init
-  (add-hook 'c++-mode-hook 'flycheck-mode-on-safe)
-  (add-hook 'c-mode-hook 'flycheck-mode-on-safe))
+  :commands flycheck-mode
+  :hook ((c++-mode c-mode) . flycheck-mode))
 
 (provide 'init-buffer)

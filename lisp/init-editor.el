@@ -52,9 +52,8 @@
   :hook ((prog-mode conf-mode org-mode) . ws-butler-mode))
 
 (req-package markdown-mode
-  :defer t
-  :require ws-butler
-  :init
+  :mode "\\.md\\'"
+  :config
   (add-hook 'markdown-mode-hook #'ws-butler-mode)
   (add-hook 'markdown-mode-hook #'(lambda () (setq truncate-lines nil))))
 

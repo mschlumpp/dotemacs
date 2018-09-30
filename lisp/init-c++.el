@@ -42,7 +42,6 @@
 
 (defun xy//setup-cquery ()
   (lsp-cquery-enable)
-  (yas-minor-mode)
   (setq-local company-transformers nil)
   (setq-local company-lsp-async t)
   (setq-local company-lsp-cache-candidates nil))

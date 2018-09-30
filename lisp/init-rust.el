@@ -1,6 +1,6 @@
 ;;;; Rust
 (req-package rust-mode
-  :commands (rust-mode))
+  :mode "\\.rs\\'")
 
 (req-package lsp-rust
   :require rust-mode lsp-mode

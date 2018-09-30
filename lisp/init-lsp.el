@@ -22,6 +22,7 @@
 
 (req-package company-lsp
   :require lsp-mode
+  :demand t
   :init
   (push 'company-lsp company-backends))
 

@@ -1,4 +1,5 @@
 (req-package diminish
+  :demand t
   :config
   (diminish 'eldoc-mode)
   (diminish 'subword-mode)
@@ -17,12 +18,12 @@
 
 (req-package evil-magit
   :require magit
-  :init
+  :demand t
+  :config
   (require 'evil-magit))
 
 (req-package git-gutter
   :require evil-leader
-  :commands git-gutter-mode
   :init
   (defun xy//git-gutter-maybe ()
     (when (and (buffer-file-name)
@@ -36,6 +37,7 @@
 
 (req-package git-gutter-fringe
   :require git-gutter
+  :demand t
   :config
   (require 'git-gutter-fringe)
   (fringe-helper-define 'git-gutter-fr:added '(center repeated)
@@ -60,6 +62,7 @@
 
 (req-package which-key
   :diminish which-key-mode
+  :demand t
   :config
   (which-key-mode 1)
   (which-key-setup-minibuffer)
@@ -68,6 +71,7 @@
     "SPC m" "mode"
     "SPC ." "next buffer"
     "SPC f" "file"
+    "SPC p" "projects"
     "SPC b" "buffer"
     "SPC g" "git"
     "SPC q" "quit"))

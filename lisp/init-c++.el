@@ -59,8 +59,8 @@
   (lsp-ui-peek-find-custom 'vars "$cquery/vars"))
 
 (req-package cquery
-  :require (lsp-mode lsp-ui hydra)
   :commands (lsp-cquery-enable)
+  :hook ((c-mode c++-mode) . xy//setup-cquery)
   :init
   (add-hook 'c-mode-hook #'xy//setup-cquery)
   (add-hook 'c++-mode-hook #'xy//setup-cquery)

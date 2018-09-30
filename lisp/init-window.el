@@ -44,10 +44,12 @@
   (setq last-command 'iflipb-next-buffer)
   (iflipb-previous-buffer))
 
-(req-package iflipb)
+(req-package iflipb
+  :demand t)
 
 (req-package hydra
   :require iflipb
+  :demand t
   :config
   (defhydra hydra-window (global-map "C-#" :hint nil)
     "
@@ -99,7 +101,7 @@
 
 ;;;; Popwin
 (req-package popwin
-  :defines popwin:keymap
+  :demand t
   :config
   (popwin-mode)
   (global-set-key (kbd "C-c w") popwin:keymap)

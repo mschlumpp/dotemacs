@@ -1,4 +1,5 @@
 (req-package evil
+  :demand t
   :config
   (evil-mode 1)
   (setq evil-want-fine-undo t)
@@ -8,6 +9,7 @@
 (req-package evil-escape
   :diminish evil-escape-mode
   :require evil
+  :demand t
   :config
   (evil-escape-mode 1)
   (setq-default evil-escape-delay 0.05)
@@ -16,6 +18,7 @@
 
 (req-package evil-leader
   :require evil
+  :demand t
   :config
   (global-evil-leader-mode 1)
   (evil-leader/set-leader "<SPC>")

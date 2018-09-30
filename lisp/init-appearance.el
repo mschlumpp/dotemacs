@@ -33,6 +33,7 @@
 
 (req-package beacon
   :diminish beacon-mode
+  :demand t
   :config
   (beacon-mode 1))
 

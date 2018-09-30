@@ -1,5 +1,4 @@
 (req-package tex
-  :require (flycheck)
   :ensure auctex
   :init
   (add-hook 'latex-mode-hook 'flycheck-mode-on-safe)

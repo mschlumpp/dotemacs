@@ -3,7 +3,8 @@
   :mode "\\.rs\\'")
 
 (req-package lsp-rust
-  :require rust-mode lsp-mode
+  :require rust-mode
+  :commands lsp-rust-enable
   :init
   (add-hook 'rust-mode-hook #'lsp-rust-enable)
   :config

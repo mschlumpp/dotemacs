@@ -1,6 +1,8 @@
 ;;;; Rust
 (req-package rust-mode
-  :mode "\\.rs\\'")
+  :mode "\\.rs\\'"
+  :commands (rust-mode)
+  :hook (rust-mode . auto-revert-mode))
 
 (req-package lsp-rust
   :require rust-mode

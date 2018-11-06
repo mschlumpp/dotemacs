@@ -32,12 +32,6 @@
 (add-hook 'prog-mode-hook 'xy//show-trailing-whitespace)
 (add-hook 'conf-mode-hook 'xy//show-trailing-whitespace)
 
-(req-package beacon
-  :diminish beacon-mode
-  :demand t
-  :config
-  (beacon-mode 1))
-
 (req-package fringe-helper
   :init
   (unless (fboundp 'define-fringe-bitmap)

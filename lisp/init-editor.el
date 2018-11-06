@@ -63,4 +63,11 @@
 
 (req-package yasnippet)
 
+(req-package highlight-indent-guides
+  :init
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  :config
+  (setq highlight-indent-guides-method 'character
+        highlight-indent-guides-responsive 'top))
+
 (provide 'init-editor)

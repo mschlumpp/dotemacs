@@ -26,6 +26,7 @@
 (require 'init-web)
 (require 'init-auto-insert)
 (require 'init-org)
+(require 'init-haskell)
 
 (req-package-finish)
 

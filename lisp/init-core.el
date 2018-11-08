@@ -35,12 +35,21 @@
       (package-refresh-contents))
     (package-install package)))
 
-(ensure-package 'bind-key t)
-(require 'bind-key)
-(ensure-package 'use-package t)
-(require 'use-package)
-(ensure-package 'req-package t)
-(require 'req-package)
+(require 'cl)
+(defun xy//ensure-packages (packages)
+  "Ensure that the specified list of packages are installed and loaded"
+  (let ((pkgs (cl-map 'list (lambda (p) (cons p (package-installed-p p))) packages)))
+    (when (notevery #'cdr pkgs)
+      (package-refresh-contents))
+    (dolist (p pkgs)
+      (unless (cdr p)
+        (package-install (car p)))
+      (require (car p)))))
+
+(xy//ensure-packages
+ '(bind-key
+   use-package
+   req-package))
 
 (setq use-package-always-defer t)
 (setq use-package-always-ensure t)

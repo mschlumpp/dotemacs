@@ -7,8 +7,6 @@
 (req-package lsp-rust
   :require rust-mode
   :commands lsp-rust-enable
-  :init
-  (add-hook 'rust-mode-hook #'lsp-rust-enable)
   :config
   (lsp-rust-set-config "clippy_preference" "on")
   (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))

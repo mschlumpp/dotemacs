@@ -26,11 +26,6 @@
 	      0                           ; no additional indent
 	    ad-do-it))))
 
-(req-package fic-mode
-  :commands (turn-on-fic-mode)
-  :init
-  (add-hook 'c++-mode-hook 'fic-mode))
-
 (req-package cpputils-cmake
   :commands cppcm-reload-all
   :init

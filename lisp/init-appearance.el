@@ -37,4 +37,7 @@
   (unless (fboundp 'define-fringe-bitmap)
     (defun define-fringe-bitmap (&rest _))))
 
+(req-package hl-todo
+  :hook ((prog-mode) . hl-todo-mode))
+
 (provide 'init-appearance)

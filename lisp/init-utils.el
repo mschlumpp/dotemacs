@@ -13,6 +13,7 @@
     "gs" 'magit-status
     "gp" 'magit-file-popup)
   :config
+  (magit-wip-mode t)
   (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
   (setq magit-last-seen-setup-instructions "1.4.0"))
 

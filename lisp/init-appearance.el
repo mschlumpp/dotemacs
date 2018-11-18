@@ -40,4 +40,9 @@
 (req-package hl-todo
   :hook ((prog-mode) . hl-todo-mode))
 
+(req-package highlight-numbers
+  :demand t
+  :init
+  (add-hook 'prog-mode-hook 'highlight-numbers-mode))
+
 (provide 'init-appearance)

@@ -24,40 +24,20 @@
   (setq cppcm-write-flymake-makefile nil))
 
 (defun xy//setup-cquery ()
-  (lsp-cquery-enable)
+  (lsp-ccls-enable)
   (setq-local company-transformers nil)
   (setq-local company-lsp-async t)
   (setq-local company-lsp-cache-candidates nil))
 
-(defun xy//cquery-find-base ()
-  (interactive)
-  (lsp-ui-peek-find-custom 'base "$cquery/base"))
-
-(defun xy//cquery-find-callers ()
-  (interactive)
-  (lsp-ui-peek-find-custom 'callers "$cquery/callers"))
-
-(defun xy//cquery-find-vars ()
-  (interactive)
-  (lsp-ui-peek-find-custom 'vars "$cquery/vars"))
-
-(req-package cquery
-  :commands (lsp-cquery-enable)
-  :hook ((c-mode c++-mode) . xy//setup-cquery)
+(req-package ccls
+  :demand t
   :init
-  (add-hook 'c-mode-hook #'xy//setup-cquery)
-  (add-hook 'c++-mode-hook #'xy//setup-cquery)
-  (evil-leader/set-key-for-mode 'c++-mode
-    "n b" 'xy//cquery-find-base
-    "n c" 'xy//cquery-find-callers
-    "n v" 'xy//cquery-find-vars)
-
+  (add-hook 'c-mode-hook #'xy//setup-ccls)
+  (add-hook 'c++-mode-hook #'xy//setup-ccls)
   :config
-  (add-to-list 'evil-emacs-state-modes 'cquery-tree-mode)
-
-  (setq cquery-extra-init-params '(:index (:comments 2) :completion (:detailedLabel t) :cacheFormat "msgpack"))
-  (setq cquery-sem-highlight-method 'overlay)
-  (cquery-use-default-rainbow-sem-highlight))
+  (add-to-list 'evil-emacs-state-modes 'ccls-tree-mode)
+  (setq ccls-extra-init-params '(:cacheDirectory "/tmp/ccls" :index (:comments 2) :completion (:detailedLabel t)))
+  (ccls-use-default-rainbow-sem-highlight))
 
 ;;;; gdb
 (setq gdb-many-windows t)

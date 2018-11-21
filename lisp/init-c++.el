@@ -23,7 +23,7 @@
   :config
   (setq cppcm-write-flymake-makefile nil))
 
-(defun xy//setup-cquery ()
+(defun xy//setup-ccls ()
   (lsp-ccls-enable)
   (setq-local company-transformers nil)
   (setq-local company-lsp-async t)

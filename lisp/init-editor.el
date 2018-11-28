@@ -18,7 +18,9 @@
 
 (req-package expand-region
   :commands er/expand-region
-  :bind ("C-+" . er/expand-region))
+  :require evil-leader
+  :init
+  (evil-leader/set-key "=" 'er/expand-region))
 
 (req-package undo-tree
   :diminish undo-tree-mode

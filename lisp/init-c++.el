@@ -14,15 +14,6 @@
 			  scope-operator
 			  empty-defun-braces)))
 
-(req-package cpputils-cmake
-  :commands cppcm-reload-all
-  :init
-  (add-hook 'c-mode-common-hook (lambda ()
-				  (if (derived-mode-p 'c-mode 'c++-mode)
-				      (cppcm-reload-all))))
-  :config
-  (setq cppcm-write-flymake-makefile nil))
-
 (defun xy//setup-cquery ()
   (lsp-cquery-enable)
   (setq-local company-transformers nil)

@@ -45,7 +45,8 @@
   (when (executable-find "fd")
     (setenv "FZF_DEFAULT_COMMAND" "fd --type f"))
   (evil-leader/set-key
-    "h" 'counsel-fzf))
+    "h" 'counsel-fzf
+    "fr" 'counsel-recentf))
 
 (req-package neotree
   :commands neotree-toggle

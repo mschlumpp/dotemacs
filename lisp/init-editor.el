@@ -12,6 +12,11 @@
   :config
   (editorconfig-mode 1))
 
+(req-package dtrt-indent
+  :demand t
+  :config
+  (dtrt-indent-global-mode 1))
+
 (req-package anzu
   :bind (("M-%" . anzu-query-replace)
          ("C-M-%" . anzu-query-replace-regexp)))

@@ -1,5 +1,6 @@
 (req-package tex
   :ensure auctex
+  :mode ("\\.tex\\'" . latex-mode)
   :init
   (add-hook 'latex-mode-hook 'flycheck-mode-on-safe)
   :config

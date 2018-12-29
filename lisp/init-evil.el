@@ -31,7 +31,7 @@
     "fS" 'evil-write-all
     ;; Buffer
     "bb" 'switch-to-buffer
-    "bk" 'kill-buffer
+    "bk" 'kill-current-buffer
     ;; Windows
     "qq" 'save-buffers-kill-terminal
     "wc" 'delete-window

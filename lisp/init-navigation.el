@@ -12,7 +12,9 @@
   (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)
   (define-key ivy-minibuffer-map (kbd "C-l") 'ivy-alt-done)
   (define-key ivy-minibuffer-map (kbd "C-h") 'ivy-backward-kill-word)
-  (ivy-mode 1))
+  (ivy-mode 1)
+  (evil-set-initial-state 'ivy-occur-grep-mode 'normal)
+  (evil-make-overriding-map ivy-occur-mode-map 'normal))
 
 (req-package swiper
   :require ivy

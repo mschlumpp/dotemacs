@@ -15,7 +15,6 @@
 			  empty-defun-braces)))
 
 (defun xy//setup-cquery ()
-  (lsp-cquery-enable)
   (setq-local company-transformers nil)
   (setq-local company-lsp-async t)
   (setq-local company-lsp-cache-candidates nil))
@@ -33,17 +32,15 @@
   (lsp-ui-peek-find-custom 'vars "$cquery/vars"))
 
 (req-package cquery
-  :commands (lsp-cquery-enable)
+  :require lsp-mode
+  :demand t
   :hook ((c-mode c++-mode) . xy//setup-cquery)
-  :init
-  (add-hook 'c-mode-hook #'xy//setup-cquery)
-  (add-hook 'c++-mode-hook #'xy//setup-cquery)
+  :config
   (evil-leader/set-key-for-mode 'c++-mode
     "n b" 'xy//cquery-find-base
     "n c" 'xy//cquery-find-callers
     "n v" 'xy//cquery-find-vars)
 
-  :config
   (add-to-list 'evil-emacs-state-modes 'cquery-tree-mode)
 
   (setq cquery-extra-init-params '(:index (:comments 2) :completion (:detailedLabel t) :cacheFormat "msgpack"))

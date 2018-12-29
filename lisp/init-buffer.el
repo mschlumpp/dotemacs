@@ -30,4 +30,11 @@
   :commands flycheck-mode
   :hook ((c++-mode c-mode) . flycheck-mode))
 
+(req-package flycheck-posframe
+  :require flycheck
+  :init
+  (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode)
+  :config
+  (flycheck-posframe-configure-pretty-defaults))
+
 (provide 'init-buffer)

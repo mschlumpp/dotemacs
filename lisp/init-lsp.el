@@ -8,6 +8,11 @@
     "mfr" 'lsp-format-region
     "ma" 'lsp-execute-code-action))
 
+(defun xy//lsp-auto-enable ()
+  (interactive)
+  (add-hook 'rust-mode-hook 'lsp)
+  (add-hook 'c++-mode-hook 'lsp))
+
 (req-package lsp-ui
   :require lsp-mode
   :init

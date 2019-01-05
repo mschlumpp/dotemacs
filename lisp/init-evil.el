@@ -18,6 +18,7 @@
 
 (req-package evil-goggles
   :require evil
+  :diminish evil-goggles-mode
   :demand t
   :config
   (evil-goggles-mode))

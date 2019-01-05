@@ -13,6 +13,7 @@
   (editorconfig-mode 1))
 
 (req-package dtrt-indent
+  :diminish dtrt-indent-mode
   :demand t
   :config
   (dtrt-indent-global-mode 1))

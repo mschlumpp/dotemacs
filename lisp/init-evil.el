@@ -16,6 +16,18 @@
   (setq-default evil-escape-unordered-key-sequence t)
   (setq-default evil-escape-key-sequence "jk"))
 
+(req-package evil-goggles
+  :require evil
+  :demand t
+  :config
+  (evil-goggles-mode))
+
+(req-package evil-snipe
+  :require evil
+  :demand t
+  :config
+  (evil-snipe-override-mode))
+
 (req-package evil-leader
   :require evil
   :demand t

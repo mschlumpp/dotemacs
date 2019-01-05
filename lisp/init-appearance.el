@@ -33,11 +33,6 @@
 (add-hook 'prog-mode-hook 'xy//show-trailing-whitespace)
 (add-hook 'conf-mode-hook 'xy//show-trailing-whitespace)
 
-(req-package doom-modeline
-  :demand t
-  :defer t
-  :hook (after-init . doom-modeline-init))
-
 (req-package fringe-helper
   :init
   (unless (fboundp 'define-fringe-bitmap)

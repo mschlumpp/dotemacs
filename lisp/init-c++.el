@@ -31,21 +31,22 @@
   (interactive)
   (lsp-ui-peek-find-custom 'vars "$cquery/vars"))
 
-(req-package cquery
+(req-package ccls
   :require lsp-mode
   :demand t
   :hook ((c-mode c++-mode) . xy//setup-cquery)
   :config
-  (evil-leader/set-key-for-mode 'c++-mode
-    "n b" 'xy//cquery-find-base
-    "n c" 'xy//cquery-find-callers
-    "n v" 'xy//cquery-find-vars)
+  (add-to-list 'evil-emacs-state-modes 'ccls-tree-mode)
+  (ccls-use-default-rainbow-sem-highlight))
 
-  (add-to-list 'evil-emacs-state-modes 'cquery-tree-mode)
-
-  (setq cquery-extra-init-params '(:index (:comments 2) :completion (:detailedLabel t) :cacheFormat "msgpack"))
-  (setq cquery-sem-highlight-method 'overlay)
-  (cquery-use-default-rainbow-sem-highlight))
+(defun xy//enable-ccls ()
+  (interactive)
+  (mapc (lambda (buf) (with-current-buffer buf
+                        (when (derived-mode-p 'c-mode)
+                          (lsp))))
+        (projectile-project-buffers))
+  (add-hook 'c-mode-hook 'lsp)
+  (add-hook 'c++-mode-hook 'lsp))
 
 ;;;; gdb
 (setq gdb-many-windows t)

@@ -37,6 +37,7 @@
   :hook ((c-mode c++-mode) . xy//setup-cquery)
   :config
   (add-to-list 'evil-emacs-state-modes 'ccls-tree-mode)
+  (setq ccls-sem-highlight-method 'font-lock)
   (ccls-use-default-rainbow-sem-highlight))
 
 (defun xy//enable-ccls ()

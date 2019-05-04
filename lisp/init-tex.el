@@ -2,8 +2,9 @@
   :ensure auctex
   :mode ("\\.tex\\'" . latex-mode)
   :init
-  (add-hook 'latex-mode-hook 'flycheck-mode-on-safe)
   :config
+  (add-hook 'LaTeX-mode-hook 'flycheck-mode-on-safe)
+  (add-hook 'LaTeX-mode-hook 'hl-todo-mode)
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq-default TeX-master nil)

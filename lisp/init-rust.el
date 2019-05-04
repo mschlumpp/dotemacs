@@ -4,13 +4,6 @@
   :commands (rust-mode)
   :hook (rust-mode . auto-revert-mode))
 
-(req-package lsp-rust
-  :require rust-mode
-  :commands lsp-rust-enable
-  :config
-  (lsp-rust-set-config "clippy_preference" "on")
-  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
-
 (req-package cargo
   :require rust-mode
   :init

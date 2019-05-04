@@ -39,7 +39,7 @@
     (defun define-fringe-bitmap (&rest _))))
 
 (req-package hl-todo
-  :hook ((prog-mode) . hl-todo-mode))
+  :hook ((prog-mode tex-mode) . hl-todo-mode))
 
 (req-package highlight-numbers
   :demand t

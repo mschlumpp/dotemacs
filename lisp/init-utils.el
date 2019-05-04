@@ -11,7 +11,7 @@
   :init
   (evil-leader/set-key
     "gs" 'magit-status
-    "gp" 'magit-file-popup)
+    "gp" 'magit-file-dispatch)
   :config
   (magit-wip-mode t)
   (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))

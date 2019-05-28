@@ -8,6 +8,8 @@
   :config
   (setq org-directory "~/orgmode")
   (setq org-default-notes-file (concat org-directory "/notes.org"))
+  (setq org-refile-targets
+        '((org-agenda-files :maxlevel . 1)))
   (when (equal (system-name) "fedtop")
     (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))))
 

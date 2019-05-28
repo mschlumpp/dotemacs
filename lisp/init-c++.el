@@ -14,6 +14,8 @@
 			  scope-operator
 			  empty-defun-braces)))
 
+(setq compilation-scroll-output 'first-error)
+
 (defun xy//setup-cquery ()
   (setq-local company-transformers nil)
   (setq-local company-lsp-async t)

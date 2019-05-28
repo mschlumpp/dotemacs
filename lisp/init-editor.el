@@ -34,6 +34,14 @@
   :config
   (global-undo-tree-mode 1))
 
+(req-package tramp
+  :config
+  (setq remote-file-name-inhibit-cache nil)
+  (setq vc-ignore-dir-regexp
+        (format "%s\\|%s"
+                vc-ignore-dir-regexp
+                tramp-file-name-regexp)))
+
 (req-package company
   :demand t
   :config

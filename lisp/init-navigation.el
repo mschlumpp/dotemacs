@@ -58,6 +58,6 @@
   (setq-default neo-theme 'ascii))
 
 (req-package avy
-  :bind ("C-ö" . avy-goto-word-or-subword-1))
+  :bind ("M-[" . avy-goto-word-or-subword-1))
 
 (provide 'init-navigation)

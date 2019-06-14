@@ -86,4 +86,8 @@
   (setq highlight-indent-guides-method 'character
         highlight-indent-guides-responsive 'top))
 
+(req-package olivetti
+  :config
+  (setq-default olivetti-body-width 94))
+
 (provide 'init-editor)

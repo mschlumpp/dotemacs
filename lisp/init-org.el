@@ -5,6 +5,7 @@
   :init
   (add-hook 'org-mode-hook 'visual-line-mode)
   (add-hook 'org-mode-hook 'org-indent-mode)
+  (add-hook 'org-mode-hook 'olivetti-mode)
   :config
   (setq org-directory "~/orgmode")
   (setq org-default-notes-file (concat org-directory "/notes.org"))

@@ -36,6 +36,8 @@
 
 (req-package tramp
   :config
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+  ;; Some performance settings
   (setq remote-file-name-inhibit-cache nil)
   (setq vc-ignore-dir-regexp
         (format "%s\\|%s"

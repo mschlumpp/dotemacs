@@ -51,6 +51,13 @@
   :require iflipb
   :demand t
   :config
+
+  (defhydra hydra-winner (:hint nil)
+    "
+[_u_] undo [_U_] Redo"
+    ("u" winner-undo)
+    ("U" winner-redo))
+
   (defhydra hydra-window (global-map "C-#" :hint nil)
     "
   ^ Movement ^  │   ^  Splits  ^    │  ^ Buffers  ^  │  ^  Other ^
@@ -93,6 +100,7 @@
     ("." quick-buffer//fix-next))
 
   (evil-leader/set-key
+    "wu" 'hydra-winner/winner-undo
     "." (lambda ()
           (interactive)
           (iflipb-next-buffer nil)

@@ -116,6 +116,11 @@
   (add-to-list 'popwin:special-display-config '("*git-gutter:diff*" :noselect t))
   (add-to-list 'popwin:special-display-config '("*RTags*" :stick t :noselect t :position bottom :width 60))
   (add-to-list 'popwin:special-display-config '("\\*Cargo \\w+\\*" :regexp t :noselect t))
-  (add-to-list 'popwin:special-display-config '("*Flycheck errors*" :noselect t)))
+  (add-to-list 'popwin:special-display-config '("*Flycheck errors*" :noselect t))
+  (evil-leader/set-key
+    "we" 'popwin:messages
+    "wg" 'popwin:stick-popup-window
+    "wp" 'popwin:select-popup-window
+    "wr" 'popwin:display-last-buffer))
 
 (provide 'init-window)

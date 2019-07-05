@@ -1,10 +1,18 @@
 (req-package evil
   :demand t
+  :init
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode 1)
   (setq evil-want-fine-undo t)
   (define-key evil-motion-state-map (kbd "K") nil)
   (define-key evil-normal-state-map (kbd "M-.") nil))
+
+(req-package evil-collection
+  :require evil
+  :demand t
+  :config
+  (evil-collection-init))
 
 (req-package evil-escape
   :diminish evil-escape-mode

@@ -1,5 +1,9 @@
 (winner-mode t)
-(windmove-default-keybindings)
+(bind-keys
+ ("C-M-<left>"  . windmove-left)
+ ("C-M-<right>" . windmove-right)
+ ("C-M-<up>"    . windmove-up)
+ ("C-M-<down>"  . windmove-down))
 
 (defun hydra-move-splitter-left (arg)
   "Move window splitter left."

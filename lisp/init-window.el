@@ -117,6 +117,7 @@
   (add-to-list 'popwin:special-display-config '("*RTags*" :stick t :noselect t :position bottom :width 60))
   (add-to-list 'popwin:special-display-config '("\\*Cargo \\w+\\*" :regexp t :noselect t))
   (add-to-list 'popwin:special-display-config '("*Flycheck errors*" :noselect t))
+  (add-to-list 'popwin:special-display-config '("*ggtags-global*" :noselect t))
   (evil-leader/set-key
     "we" 'popwin:messages
     "wg" 'popwin:stick-popup-window

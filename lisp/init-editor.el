@@ -92,4 +92,11 @@
   :config
   (setq-default olivetti-body-width 94))
 
+(req-package no-littering
+  :demand t
+  :config
+  (require 'recentf)
+  (add-to-list 'recentf-exclude no-littering-var-directory)
+  (add-to-list 'recentf-exclude no-littering-etc-directory))
+
 (provide 'init-editor)

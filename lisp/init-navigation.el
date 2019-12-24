@@ -22,7 +22,7 @@
 
 (req-package swiper
   :require ivy
-  :bind (("C-s" . swiper)))
+  :demand t)
 
 (req-package ivy-rich
   :require ivy
@@ -45,6 +45,7 @@
 (req-package counsel
   :require (evil-leader smex)
   :diminish
+  :bind (("C-s" . counsel-grep-or-swiper))
   :demand t
   :config
   (counsel-mode 1)

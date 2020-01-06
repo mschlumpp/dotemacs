@@ -35,5 +35,13 @@
 (setq use-package-always-defer t)
 (setq use-package-compute-statistics t)
 
+(use-package diminish
+  :demand t
+  :config
+  (diminish 'eldoc-mode)
+  (diminish 'subword-mode)
+  (diminish 'auto-revert-mode)
+  (diminish 'abbrev-mode))
+
 (provide 'init-core)
 

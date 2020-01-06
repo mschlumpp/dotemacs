@@ -7,7 +7,7 @@
 (show-paren-mode t)
 (blink-cursor-mode -1)
 (column-number-mode t)
-;; (global-hl-line-mode t)
+(global-hl-line-mode t)
 
 ;; Set frames by default maximized
 (add-to-list 'default-frame-alist '(fullscreen . maximized))

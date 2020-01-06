@@ -60,6 +60,7 @@
     "SPC w" "window"
     "SPC m" "mode"
     "SPC ." "next buffer"
+    "SPC t" "toggles"
     "SPC f" "file"
     "SPC p" "projects"
     "SPC b" "buffer"

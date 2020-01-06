@@ -109,6 +109,18 @@
           (hydra-buffer-switch/body))))
 
 
+(use-package zoom
+  :general
+  (my-leader-def
+    "tz" '(zoom-mode :wk xy//wk-display-toggle-zoom))
+  :config
+  (defun xy//wk-display-toggle-zoom (kb)
+    (cons (car kb)
+          (if zoom-mode
+              "[x] zoom"
+            "[ ] zoom")))
+  (zoom-mode 1))
+
 ;;;; Popwin
 (use-package popwin
   :demand t

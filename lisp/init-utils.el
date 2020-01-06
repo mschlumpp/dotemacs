@@ -1,4 +1,4 @@
-(req-package diminish
+(use-package diminish
   :demand t
   :config
   (diminish 'eldoc-mode)
@@ -6,25 +6,23 @@
   (diminish 'auto-revert-mode)
   (diminish 'abbrev-mode))
 
-(req-package magit
+(use-package magit
   :commands magit-status
   :init
   (evil-leader/set-key
     "gs" 'magit-status
     "gp" 'magit-file-dispatch)
   :config
+  (use-package evil-magit
+    :demand t
+    :config
+    (require 'evil-magit))
   (magit-wip-mode t)
   (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
   (setq magit-last-seen-setup-instructions "1.4.0"))
 
-(req-package evil-magit
-  :require magit
-  :demand t
-  :config
-  (require 'evil-magit))
 
-(req-package git-gutter
-  :require evil-leader
+(use-package git-gutter
   :init
   (defun xy//git-gutter-maybe ()
     (when (and (buffer-file-name)
@@ -36,8 +34,7 @@
   (evil-leader/set-key
     "gd" 'git-gutter:popup-diff))
 
-(req-package git-gutter-fringe
-  :require git-gutter
+(use-package git-gutter-fringe
   :demand t
   :config
   (require 'git-gutter-fringe)
@@ -51,8 +48,7 @@
     "XXX....."
     "XXXX...."))
 
-(req-package git-timemachine
-  :require evil-leader
+(use-package git-timemachine
   :commands git-timemachine
   :init
   (evil-leader/set-key
@@ -61,7 +57,7 @@
   (evil-make-overriding-map git-timemachine-mode-map 'normal)
   (add-hook 'git-timemachine-mode-hook #'evil-normalize-keymaps))
 
-(req-package which-key
+(use-package which-key
   :diminish which-key-mode
   :demand t
   :config

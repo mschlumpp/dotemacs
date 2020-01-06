@@ -1,4 +1,4 @@
-(req-package evil
+(use-package evil
   :demand t
   :init
   (setq evil-want-keybinding nil)
@@ -8,15 +8,13 @@
   (define-key evil-motion-state-map (kbd "K") nil)
   (define-key evil-normal-state-map (kbd "M-.") nil))
 
-(req-package evil-collection
-  :require evil
+(use-package evil-collection
   :demand t
   :config
   (evil-collection-init))
 
-(req-package evil-escape
+(use-package evil-escape
   :diminish evil-escape-mode
-  :require evil
   :demand t
   :config
   (evil-escape-mode 1)
@@ -24,21 +22,12 @@
   (setq-default evil-escape-unordered-key-sequence t)
   (setq-default evil-escape-key-sequence "jk"))
 
-(req-package evil-goggles
-  :require evil
-  :diminish evil-goggles-mode
-  :demand t
-  :config
-  (evil-goggles-mode))
-
-(req-package evil-snipe
-  :require evil
+(use-package evil-snipe
   :demand t
   :config
   (evil-snipe-override-mode))
 
-(req-package evil-leader
-  :require evil
+(use-package evil-leader
   :demand t
   :config
   (global-evil-leader-mode 1)

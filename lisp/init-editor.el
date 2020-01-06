@@ -6,35 +6,34 @@
 (bind-keys*
  ("C-;" . comment-line))
 
-(req-package editorconfig
+(use-package editorconfig
   :diminish
   :demand t
   :config
   (editorconfig-mode 1))
 
-(req-package dtrt-indent
+(use-package dtrt-indent
   :diminish dtrt-indent-mode
   :demand t
   :config
   (dtrt-indent-global-mode 1))
 
-(req-package anzu
+(use-package anzu
   :bind (("M-%" . anzu-query-replace)
          ("C-M-%" . anzu-query-replace-regexp)))
 
-(req-package expand-region
+(use-package expand-region
   :commands er/expand-region
-  :require evil-leader
   :init
   (evil-leader/set-key "=" 'er/expand-region))
 
-(req-package undo-tree
+(use-package undo-tree
   :diminish undo-tree-mode
   :ensure t
   :config
   (global-undo-tree-mode 1))
 
-(req-package tramp
+(use-package tramp
   :config
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
   ;; Some performance settings
@@ -44,7 +43,7 @@
                 vc-ignore-dir-regexp
                 tramp-file-name-regexp)))
 
-(req-package company
+(use-package company
   :demand t
   :config
   (global-company-mode 1)
@@ -55,44 +54,41 @@
   (define-key company-active-map (kbd "C-k") #'company-select-previous)
   (define-key company-active-map (kbd "C-l") #'company-complete-selection))
 
-(req-package company-flx
-  :require company
+(use-package company-flx
   :demand t
   :config
   (company-flx-mode 1))
-(req-package company-statistics
-  :require company
+(use-package company-statistics
   :demand t
   :config
   (company-statistics-mode 1))
-(req-package company-quickhelp
-  :require company
+(use-package company-quickhelp
   :demand t
   :config
   (company-quickhelp-mode 1))
 
-(req-package ws-butler
+(use-package ws-butler
   :hook ((prog-mode conf-mode org-mode) . ws-butler-mode))
 
-(req-package markdown-mode
+(use-package markdown-mode
   :mode "\\.md\\'"
   :config
   (add-hook 'markdown-mode-hook #'ws-butler-mode)
   (add-hook 'markdown-mode-hook #'(lambda () (setq truncate-lines nil))))
 
-(req-package yasnippet)
+(use-package yasnippet)
 
-(req-package highlight-indent-guides
+(use-package highlight-indent-guides
   :commands highlight-indent-guides-mode
   :config
   (setq highlight-indent-guides-method 'character
         highlight-indent-guides-responsive 'top))
 
-(req-package olivetti
+(use-package olivetti
   :config
   (setq-default olivetti-body-width 94))
 
-(req-package no-littering
+(use-package no-littering
   :demand t
   :config
   (require 'recentf)

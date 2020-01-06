@@ -9,8 +9,7 @@
  ("M-n" . next-error)
  ("M-p" . previous-error))
 
-(req-package projectile
-  :require counsel ; for counsel-rg
+(use-package projectile
   :bind ("C-c h" . projectile-find-file)
   :bind-keymap ("C-c p" . projectile-command-map)
   :demand t
@@ -26,12 +25,11 @@
   (projectile-global-mode 1))
 
 ;;;; Flycheck
-(req-package flycheck
+(use-package flycheck
   :commands flycheck-mode
   :hook ((c++-mode c-mode) . flycheck-mode))
 
-(req-package flycheck-posframe
-  :require flycheck
+(use-package flycheck-posframe
   :init
   (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode)
   :config

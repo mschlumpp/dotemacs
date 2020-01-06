@@ -1,4 +1,4 @@
-(req-package org
+(use-package org
   :ensure nil
   :bind (("C-c g" . org-agenda)
          ("C-c c" . org-capture))

@@ -9,7 +9,6 @@
 (setq custom-file (concat user-emacs-directory (convert-standard-filename "custom.el")))
 (load custom-file 'noerror)
 
-;; Calls (package-initialize)
 (require 'init-core)
 (require 'init-evil)
 (require 'init-appearance)
@@ -21,14 +20,12 @@
 (require 'init-buffer)
 (require 'init-lsp)
 (require 'init-c++)
-(require 'init-tex)
+;; (require 'init-tex)
 (require 'init-rust)
 (require 'init-web)
 (require 'init-auto-insert)
 (require 'init-org)
 (require 'init-haskell)
-
-(req-package-finish)
 
 ;; Reset GC Threshold
 (setq gc-cons-threshold 800000)

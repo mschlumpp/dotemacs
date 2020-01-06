@@ -1,11 +1,10 @@
 ;;;; Rust
-(req-package rust-mode
+(use-package rust-mode
   :mode "\\.rs\\'"
   :commands (rust-mode)
   :hook (rust-mode . auto-revert-mode))
 
-(req-package cargo
-  :require rust-mode
+(use-package cargo
   :init
   (evil-leader/set-key-for-mode 'rust-mode
     "mt" 'cargo-process-test

@@ -1,4 +1,5 @@
-(after "cc-mode"
+(use-package cc-mode
+  :config
   (add-hook 'c++-mode-hook (lambda () (subword-mode 1)))
   (c-add-style "unknown"
 	       '("java"
@@ -33,14 +34,13 @@
   (interactive)
   (lsp-ui-peek-find-custom 'vars "$cquery/vars"))
 
-(req-package ccls
-  :require lsp-mode
-  :demand t
-  :hook ((c-mode c++-mode) . xy//setup-cquery)
-  :config
-  (add-to-list 'evil-emacs-state-modes 'ccls-tree-mode)
-  (setq ccls-sem-highlight-method 'font-lock)
-  (ccls-use-default-rainbow-sem-highlight))
+;; (use-package ccls
+;;   :demand t
+;;   :hook ((c-mode c++-mode) . xy//setup-cquery)
+;;   :config
+;;   (add-to-list 'evil-emacs-state-modes 'ccls-tree-mode)
+;;   (setq ccls-sem-highlight-method 'font-lock)
+;;   (ccls-use-default-rainbow-sem-highlight))
 
 (defun xy//enable-ccls ()
   (interactive)

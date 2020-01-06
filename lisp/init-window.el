@@ -48,11 +48,10 @@
   (setq last-command 'iflipb-next-buffer)
   (iflipb-previous-buffer))
 
-(req-package iflipb
+(use-package iflipb
   :demand t)
 
-(req-package hydra
-  :require iflipb
+(use-package hydra
   :demand t
   :config
 
@@ -112,7 +111,7 @@
 
 
 ;;;; Popwin
-(req-package popwin
+(use-package popwin
   :demand t
   :config
   (popwin-mode)

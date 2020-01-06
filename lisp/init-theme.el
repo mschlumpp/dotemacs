@@ -4,7 +4,7 @@
 (use-package doom-themes
   :demand t
   :config
-  (if (equal (system-name) "nixos")
+  (if (equal (system-name) "susebox")
       (load-theme 'doom-one t)
     (load-theme 'doom-one-light t))
   (fringe-mode nil))

@@ -3,8 +3,8 @@
 (delete-selection-mode t)
 (electric-pair-mode t)
 
-(bind-keys*
- ("C-;" . comment-line))
+(general-def
+ "C-;" 'comment-line)
 
 (use-package editorconfig
   :diminish
@@ -19,13 +19,15 @@
   (dtrt-indent-global-mode 1))
 
 (use-package anzu
-  :bind (("M-%" . anzu-query-replace)
-         ("C-M-%" . anzu-query-replace-regexp)))
+  :general
+  ("M-%" 'anzu-query-replace)
+  ("C-M-%" 'anzu-query-replace-regexp))
 
 (use-package expand-region
   :commands er/expand-region
-  :init
-  (evil-leader/set-key "=" 'er/expand-region))
+  :general
+  (my-leader-def
+    "=" 'er/expand-region))
 
 (use-package undo-tree
   :diminish undo-tree-mode
@@ -45,14 +47,18 @@
 
 (use-package company
   :demand t
+  :general
+  ('insert
+   "M-RET" 'company-complete)
+  (company-mode-map
+   "TAB" 'company-indent-or-complete-common)
+  (company-active-map
+   "C-j" 'company-select-next
+   "C-k" 'company-select-previous
+   "C-l" 'company-complete-selection)
   :config
   (global-company-mode 1)
-  (global-set-key (kbd "M-TAB") #'company-complete)
-  (setq company-tooltip-align-annotations t)
-  (define-key company-mode-map (kbd "TAB") #'company-indent-or-complete-common)
-  (define-key company-active-map (kbd "C-j") #'company-select-next)
-  (define-key company-active-map (kbd "C-k") #'company-select-previous)
-  (define-key company-active-map (kbd "C-l") #'company-complete-selection))
+  (setq company-tooltip-align-annotations t))
 
 (use-package company-flx
   :demand t

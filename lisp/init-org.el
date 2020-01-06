@@ -1,7 +1,8 @@
 (use-package org
-  :ensure nil
-  :bind (("C-c g" . org-agenda)
-         ("C-c c" . org-capture))
+  :general
+  (my-leader-def
+    "og" 'org-agenda
+    "oc" 'org-capture)
   :init
   (add-hook 'org-mode-hook 'visual-line-mode)
   (add-hook 'org-mode-hook 'org-indent-mode)

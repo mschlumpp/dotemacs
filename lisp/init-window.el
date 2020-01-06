@@ -1,9 +1,9 @@
 (winner-mode t)
-(bind-keys
- ("C-M-<left>"  . windmove-left)
- ("C-M-<right>" . windmove-right)
- ("C-M-<up>"    . windmove-up)
- ("C-M-<down>"  . windmove-down))
+(general-def
+  "C-M-<left>"  'windmove-left
+  "C-M-<right>" 'windmove-right
+  "C-M-<up>"    'windmove-up
+  "C-M-<down>"  'windmove-down)
 
 (defun hydra-move-splitter-left (arg)
   "Move window splitter left."
@@ -54,7 +54,6 @@
 (use-package hydra
   :demand t
   :config
-
   (defhydra hydra-winner (:hint nil)
     "
 [_u_] undo [_U_] Redo"
@@ -102,7 +101,7 @@
     ("," quick-buffer//fix-prev)
     ("." quick-buffer//fix-next))
 
-  (evil-leader/set-key
+  (my-leader-def
     "wu" 'hydra-winner/winner-undo
     "." (lambda ()
           (interactive)
@@ -113,18 +112,19 @@
 ;;;; Popwin
 (use-package popwin
   :demand t
+  :general
+  ("C-c w" '(:keymap popwin:keymap))
+  (my-leader-def
+    "we" 'popwin:messages
+    "wg" 'popwin:stick-popup-window
+    "wp" 'popwin:select-popup-window
+    "wr" 'popwin:display-last-buffer)
   :config
   (popwin-mode)
-  (global-set-key (kbd "C-c w") popwin:keymap)
   (add-to-list 'popwin:special-display-config '("*git-gutter:diff*" :noselect t))
   (add-to-list 'popwin:special-display-config '("*RTags*" :stick t :noselect t :position bottom :width 60))
   (add-to-list 'popwin:special-display-config '("\\*Cargo \\w+\\*" :regexp t :noselect t))
   (add-to-list 'popwin:special-display-config '("*Flycheck errors*" :noselect t))
-  (add-to-list 'popwin:special-display-config '("*ggtags-global*" :noselect t))
-  (evil-leader/set-key
-    "we" 'popwin:messages
-    "wg" 'popwin:stick-popup-window
-    "wp" 'popwin:select-popup-window
-    "wr" 'popwin:display-last-buffer))
+  (add-to-list 'popwin:special-display-config '("*ggtags-global*" :noselect t)))
 
 (provide 'init-window)

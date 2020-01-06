@@ -43,5 +43,13 @@
   (diminish 'auto-revert-mode)
   (diminish 'abbrev-mode))
 
+(use-package general
+  :demand t
+  :config
+  (general-create-definer my-leader-def
+    :keymaps 'override
+    :states '(normal visual)
+    :prefix "SPC"))
+
 (provide 'init-core)
 

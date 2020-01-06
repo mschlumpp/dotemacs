@@ -1,7 +1,7 @@
 (use-package magit
   :commands magit-status
-  :init
-  (evil-leader/set-key
+  :general
+  (my-leader-def
     "gs" 'magit-status
     "gp" 'magit-file-dispatch)
   :config
@@ -15,6 +15,9 @@
 
 
 (use-package git-gutter
+  :general
+  (my-leader-def
+    "gd" 'git-gutter:popup-diff)
   :init
   (defun xy//git-gutter-maybe ()
     (when (and (buffer-file-name)
@@ -22,9 +25,7 @@
       (git-gutter-mode t)))
   (add-hook 'prog-mode-hook #'xy//git-gutter-maybe)
   (add-hook 'text-mode-hook #'xy//git-gutter-maybe)
-  (add-hook 'conf-mode-hook #'xy//git-gutter-maybe)
-  (evil-leader/set-key
-    "gd" 'git-gutter:popup-diff))
+  (add-hook 'conf-mode-hook #'xy//git-gutter-maybe))
 
 (use-package git-gutter-fringe
   :demand t
@@ -42,8 +43,8 @@
 
 (use-package git-timemachine
   :commands git-timemachine
-  :init
-  (evil-leader/set-key
+  :general
+  (my-leader-def
     "gt" 'git-timemachine)
   :config
   (evil-make-overriding-map git-timemachine-mode-map 'normal)
@@ -62,6 +63,7 @@
     "SPC f" "file"
     "SPC p" "projects"
     "SPC b" "buffer"
+    "SPC o" "org-mode"
     "SPC g" "git"
     "SPC q" "quit"))
 

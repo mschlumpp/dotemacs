@@ -5,8 +5,9 @@
   :config
   (evil-mode 1)
   (setq evil-want-fine-undo t)
-  (define-key evil-motion-state-map (kbd "K") nil)
-  (define-key evil-normal-state-map (kbd "M-.") nil))
+  (general-unbind 'insert "C-k")        ; Disable digraph insertion
+  (general-unbind 'motion "K")          ; Disable help (man page) lookup
+  (general-unbind 'normal "M-."))
 
 (use-package evil-collection
   :demand t
@@ -27,30 +28,24 @@
   :config
   (evil-snipe-override-mode))
 
-(use-package evil-leader
-  :demand t
-  :config
-  (global-evil-leader-mode 1)
-  (evil-leader/set-leader "<SPC>")
-  ; Bind some basics
-  (evil-leader/set-key
-    "<SPC>" 'counsel-M-x
-    ;; Files
-    "ff" 'find-file
-    "fs" 'save-buffer
-    "fS" 'evil-write-all
-    ;; Buffer
-    "bb" 'switch-to-buffer
-    "bk" 'kill-current-buffer
-    ;; Windows
-    "qq" 'save-buffers-kill-terminal
-    "wc" 'delete-window
-    "wm" 'delete-other-windows; TODO: Replace this with maximize-window from spacemacs
-    "wv" 'evil-window-vsplit
-    "ws" 'evil-window-split
-    "wh" 'evil-window-left
-    "wl" 'evil-window-right
-    "wk" 'evil-window-up
-    "wj" 'evil-window-down))
+(my-leader-def
+  "SPC" 'counsel-M-x
+  ;; Files
+  "ff" 'find-file
+  "fs" 'save-buffer
+  "fS" 'evil-write-all
+  ;; Buffer
+  "bb" 'switch-to-buffer
+  "bk" 'kill-current-buffer
+  ;; Windows
+  "qq" 'save-buffers-kill-terminal
+  "wc" 'delete-window
+  "wm" 'delete-other-windows; TODO: Replace this with maximize-window from spacemacs
+  "wv" 'evil-window-vsplit
+  "ws" 'evil-window-split
+  "wh" 'evil-window-left
+  "wl" 'evil-window-right
+  "wk" 'evil-window-up
+  "wj" 'evil-window-down)
 
 (provide 'init-evil)

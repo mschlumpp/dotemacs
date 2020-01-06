@@ -2,25 +2,25 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
-(bind-keys*
- ("C-c o" . ff-find-other-file)
- ("C-c m" . switch-to-buffer)
- ("M->" . xref-find-references)
- ("M-n" . next-error)
- ("M-p" . previous-error))
+(general-def
+ "C-c o" 'ff-find-other-file
+ "C-c m" 'switch-to-buffer
+ "M->" 'xref-find-references
+ "M-n" 'next-error
+ "M-p" 'previous-error)
 
 (use-package projectile
-  :bind ("C-c h" . projectile-find-file)
-  :bind-keymap ("C-c p" . projectile-command-map)
-  :demand t
-  :init
+  :commands (xy//search-rg)
+  :general
+  ("C-c h" 'projectile-find-file)
+  ("C-c p" '(:keymap projectile-command-map))
+  (my-leader-def
+    "p" '(:keymap projectile-command-map)
+    "a" 'xy//search-rg)
+  :config
   (defun xy//search-rg ()
     (interactive)
     (counsel-rg nil (projectile-project-root)))
-  :config
-  (evil-leader/set-key
-    "p" projectile-command-map
-    "a" 'xy//search-rg)
   (setq projectile-completion-system 'default)
   (projectile-global-mode 1))
 

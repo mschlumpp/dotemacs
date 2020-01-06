@@ -1,6 +1,14 @@
 (use-package ivy
   :diminish ivy-mode
   :demand t
+  :general
+  (ivy-minibuffer-map
+   "C-j" 'ivy-next-line
+   "C-k" 'ivy-previous-line
+   "C-l" 'ivy-alt-done
+   "C-h" 'ivy-backward-kill-word)
+  (my-leader-def
+    "r" 'ivy-resume)
   :config
   (setq ivy-use-virtual-buffers t
         ivy-virtual-abbreviate 'full
@@ -10,28 +18,22 @@
           (counsel-ag . ivy--regex-plus)
           (counsel-rg . ivy--regex-plus)
           (t          . ivy--regex-fuzzy)))
-  (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
-  (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)
-  (define-key ivy-minibuffer-map (kbd "C-l") 'ivy-alt-done)
-  (define-key ivy-minibuffer-map (kbd "C-h") 'ivy-backward-kill-word)
   (ivy-mode 1)
-  (evil-leader/set-key
-    "r" 'ivy-resume)
   (evil-set-initial-state 'ivy-occur-grep-mode 'normal)
   (evil-make-overriding-map ivy-occur-mode-map 'normal))
 
 (use-package counsel
   :diminish
-  :bind (("C-s" . counsel-grep-or-swiper))
+  :general
+  ("C-s" 'counsel-grep-or-swiper)
+  (my-leader-def
+    "h" 'counsel-fzf
+    "fr" 'counsel-recentf)
   :demand t
   :config
   (counsel-mode 1)
   (when (executable-find "fd")
-    (setenv "FZF_DEFAULT_COMMAND" "fd --type f"))
-  (evil-leader/set-key
-    "h" 'counsel-fzf
-    "fr" 'counsel-recentf))
-
+    (setenv "FZF_DEFAULT_COMMAND" "fd --type f")))
 
 (use-package swiper
   :demand t)
@@ -52,6 +54,7 @@
   :demand t)
 
 (use-package avy
-  :bind ("M-[" . avy-goto-word-or-subword-1))
+  :general
+  ("M-[" 'avy-goto-word-or-subword-1))
 
 (provide 'init-navigation)

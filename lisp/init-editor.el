@@ -64,10 +64,6 @@
   :demand t
   :config
   (company-flx-mode 1))
-(use-package company-statistics
-  :demand t
-  :config
-  (company-statistics-mode 1))
 (use-package company-quickhelp
   :demand t
   :config

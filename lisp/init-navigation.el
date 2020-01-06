@@ -24,16 +24,28 @@
 
 (use-package counsel
   :diminish
+  :demand t
   :general
   ("C-s" 'counsel-grep-or-swiper)
   (my-leader-def
     "h" 'counsel-fzf
     "fr" 'counsel-recentf)
-  :demand t
   :config
   (counsel-mode 1)
   (when (executable-find "fd")
     (setenv "FZF_DEFAULT_COMMAND" "fd --type f")))
+
+(use-package prescient
+  :config
+  (prescient-persist-mode 1))
+
+(use-package ivy-prescient
+  :config
+  (ivy-prescient-mode 1))
+
+(use-package company-prescient
+  :config
+  (company-prescient-mode 1))
 
 (use-package swiper
   :demand t)

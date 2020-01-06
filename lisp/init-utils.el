@@ -67,4 +67,10 @@
     "SPC g" "git"
     "SPC q" "quit"))
 
+(use-package helpful
+  :general
+  ("C-h f" 'helpful-callable
+   "C-h v" 'helpful-variable
+   "C-h k" 'helpful-key))
+
 (provide 'init-utils)

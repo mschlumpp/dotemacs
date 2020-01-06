@@ -51,12 +51,6 @@
 (use-package smex
   :demand t)
 
-(use-package neotree
-  :commands neotree-toggle
-  :bind ("<f8>" . neotree-toggle)
-  :config
-  (setq-default neo-theme 'ascii))
-
 (use-package avy
   :bind ("M-[" . avy-goto-word-or-subword-1))
 

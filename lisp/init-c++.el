@@ -17,6 +17,8 @@
 
 (setq compilation-scroll-output 'first-error)
 
+(use-package cmake-mode)
+
 (defun xy//setup-cquery ()
   (setq-local company-transformers nil)
   (setq-local company-lsp-async t)

@@ -19,32 +19,7 @@
 
 (use-package cmake-mode)
 
-(defun xy//setup-cquery ()
-  (setq-local company-transformers nil)
-  (setq-local company-lsp-async t)
-  (setq-local company-lsp-cache-candidates nil))
-
-(defun xy//cquery-find-base ()
-  (interactive)
-  (lsp-ui-peek-find-custom 'base "$cquery/base"))
-
-(defun xy//cquery-find-callers ()
-  (interactive)
-  (lsp-ui-peek-find-custom 'callers "$cquery/callers"))
-
-(defun xy//cquery-find-vars ()
-  (interactive)
-  (lsp-ui-peek-find-custom 'vars "$cquery/vars"))
-
-;; (use-package ccls
-;;   :demand t
-;;   :hook ((c-mode c++-mode) . xy//setup-cquery)
-;;   :config
-;;   (add-to-list 'evil-emacs-state-modes 'ccls-tree-mode)
-;;   (setq ccls-sem-highlight-method 'font-lock)
-;;   (ccls-use-default-rainbow-sem-highlight))
-
-(defun xy//enable-ccls ()
+(defun xy//enable-cpp-lsp ()
   (interactive)
   (mapc (lambda (buf) (with-current-buffer buf
                         (when (derived-mode-p 'c-mode)

@@ -12,6 +12,9 @@
 ;; Set frames by default maximized
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+;; Silence ad-handle-definition warnings
+(setq ad-redefinition-action 'accept)
+
 ;; Font
 (add-to-list 'default-frame-alist
              '(font . "Iosevka Term-11"))

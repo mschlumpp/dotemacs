@@ -62,6 +62,7 @@
     "SPC ." "next buffer"
     "SPC t" "toggles"
     "SPC f" "file"
+    "SPC u" "utils"
     "SPC p" "projects"
     "SPC b" "buffer"
     "SPC o" "org-mode"
@@ -73,5 +74,12 @@
   ("C-h f" 'helpful-callable
    "C-h v" 'helpful-variable
    "C-h k" 'helpful-key))
+
+(use-package vterm
+  :defer t
+  :general
+  (my-leader-def
+    "uT" 'vterm
+    "ut" 'vterm-other-window))
 
 (provide 'init-utils)

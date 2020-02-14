@@ -7,6 +7,9 @@
   (add-hook 'org-mode-hook 'visual-line-mode)
   (add-hook 'org-mode-hook 'org-indent-mode)
   :config
+  (setq org-latex-listings t)
+  (add-to-list 'org-latex-packages-alist '("" "listings"))
+  (add-to-list 'org-latex-packages-alist '("" "color"))
   (setq org-directory "~/orgmode")
   (setq org-default-notes-file (concat org-directory "/notes.org"))
   (setq org-refile-targets

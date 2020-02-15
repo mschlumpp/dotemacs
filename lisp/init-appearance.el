@@ -16,8 +16,7 @@
 (setq ad-redefinition-action 'accept)
 
 ;; Font
-(add-to-list 'default-frame-alist
-             '(font . "Iosevka Term-11"))
+(set-frame-font "Iosevka Term-11")
 (setq x-underline-at-descent-line t)
 
 (defun xy//remove-bold ()

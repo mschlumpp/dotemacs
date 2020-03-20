@@ -9,10 +9,7 @@
 (setq custom-file (concat user-emacs-directory (convert-standard-filename "custom.el")))
 (load custom-file 'noerror)
 
-;; straight.el somehow messes up tramp package. Load bundled tramp
-;; before straight introduces the broken package
-(require 'tramp)
-
+;; Calls (package-initialize)
 (require 'init-core)
 (require 'init-evil)
 (require 'init-appearance)

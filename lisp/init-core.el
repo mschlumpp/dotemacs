@@ -13,26 +13,38 @@
       kept-new-versions 4
       version-control t)
 
-;; straight.el bootstrap
-(setq straight-use-package-by-default t)
-(setq straight-vc-git-default-clone-depth 1)
+;;;; Initialize package.el
+(require 'package)
+(setq package-user-dir "~/.emacs.d/elpa")
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+;; Make sure use-package is installed
+(defun ensure-package (package &optional refresh)
+  (unless (package-installed-p package)
+    (message "Install missing package %s" package)
+    (when refresh
+      (package-refresh-contents))
+    (package-install package)))
 
-(straight-use-package 'use-package)
+(require 'cl)
+(defun xy//ensure-packages (packages)
+  "Ensure that the specified list of packages are installed and loaded"
+  (let ((pkgs (cl-map 'list (lambda (p) (cons p (package-installed-p p))) packages)))
+    (when (notevery #'cdr pkgs)
+      (package-refresh-contents))
+    (dolist (p pkgs)
+      (unless (cdr p)
+        (package-install (car p)))
+      (require (car p)))))
+
+(xy//ensure-packages
+ '(bind-key
+   use-package))
 
 (setq use-package-always-defer t)
+(setq use-package-always-ensure t)
 (setq use-package-compute-statistics t)
 
 (use-package diminish

@@ -11,6 +11,8 @@
 
 (use-package evil-collection
   :demand t
+  :init
+  (setq evil-collection-company-use-tng nil)
   :config
   (evil-collection-init))
 

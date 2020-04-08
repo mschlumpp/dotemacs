@@ -53,8 +53,8 @@
   (company-mode-map
    "TAB" 'company-indent-or-complete-common)
   (company-active-map
-   "C-j" 'company-select-next
-   "C-k" 'company-select-previous
+   "<tab>" 'company-complete-common-or-cycle
+   "TAB" 'company-complete-common-or-cycle
    "C-l" 'company-complete-selection)
   :config
   (global-company-mode 1)

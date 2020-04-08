@@ -82,4 +82,9 @@
     "uT" 'vterm
     "ut" 'vterm-other-window))
 
+(use-package direnv
+  :config
+  (setq direnv-always-show-summary nil)
+  (direnv-mode))
+
 (provide 'init-utils)

@@ -32,10 +32,18 @@
     :init
     (push 'company-lsp company-backends)))
 
-(defun xy//lsp-auto-enable ()
-  (interactive)
-  (add-hook 'rust-mode-hook 'lsp)
-  (add-hook 'c++-mode-hook 'lsp))
+(defun xy//enable-lsp (modes)
+  (dolist (buf (buffer-list))
+    (with-current-buffer buf
+      (when (apply 'derived-mode-p modes)
+        (lsp))))
+  (dolist (mode modes)
+    (when-let* ((hook-name (concat (symbol-name mode) "-hook"))
+                (hook (intern-soft hook-name)))
+      (add-hook hook 'lsp))))
 
+(defun xy//lsp-everywhere ()
+  (interactive)
+  (xy//enable-lsp '(rust-mode c++-mode c-mode)))
 
 (provide 'init-lsp)

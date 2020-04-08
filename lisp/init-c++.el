@@ -19,15 +19,6 @@
 
 (use-package cmake-mode)
 
-(defun xy//enable-cpp-lsp ()
-  (interactive)
-  (mapc (lambda (buf) (with-current-buffer buf
-                        (when (derived-mode-p 'c-mode)
-                          (lsp))))
-        (projectile-project-buffers))
-  (add-hook 'c-mode-hook 'lsp)
-  (add-hook 'c++-mode-hook 'lsp))
-
 ;;;; gdb
 (setq gdb-many-windows t)
 

@@ -26,7 +26,7 @@
   :diminish
   :demand t
   :general
-  ("C-s" 'counsel-grep-or-swiper)
+  ([remap isearch-forward] 'counsel-grep-or-swiper)
   (my-leader-def
     "h" 'counsel-fzf
     "fr" 'counsel-recentf)

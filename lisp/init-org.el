@@ -2,7 +2,13 @@
   :general
   (my-leader-def
     "og" 'org-agenda
+    "ol" 'org-store-link
     "oc" 'org-capture)
+  (:states 'normal
+           :keymaps 'org-mode-map
+           "RET" 'org-open-at-point
+           "M-." 'org-open-at-point
+           "M-," 'org-mark-ring-goto)
   :init
   (add-hook 'org-mode-hook 'visual-line-mode)
   (add-hook 'org-mode-hook 'org-indent-mode)

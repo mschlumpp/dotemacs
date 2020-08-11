@@ -17,7 +17,7 @@
 (require 'package)
 (setq package-user-dir "~/.emacs.d/elpa")
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;; Make sure use-package is installed

@@ -4,8 +4,8 @@
 (use-package doom-themes
   :demand t
   :config
-  (if (equal (system-name) "susebox")
-      (load-theme 'doom-one t)
+  (if (string-suffix-p "box" (system-name))
+      (load-theme 'doom-dark+ t)
     (load-theme 'doom-one-light t))
   (fringe-mode nil))
 

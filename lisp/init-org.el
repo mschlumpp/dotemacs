@@ -4,6 +4,10 @@
     "og" 'org-agenda
     "ol" 'org-store-link
     "oc" 'org-capture)
+  (my-leader-def
+    :keymaps 'org-mode-map
+    "mci" 'org-clock-in
+    "mco" 'org-clock-out)
   (:states 'normal
            :keymaps 'org-mode-map
            "RET" 'org-open-at-point

@@ -7,7 +7,8 @@
   :config
   (add-hook 'lsp-mode-hook 'flycheck-mode-on-safe)
   (add-hook 'lsp-mode-hook 'yas-minor-mode)
-  (setq lsp-prefer-flymake nil)
+  (setq lsp-prefer-flymake nil
+        lsp-auto-execute-action nil)
 
   (use-package lsp-ui
     :general

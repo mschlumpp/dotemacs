@@ -26,12 +26,7 @@
     (setq lsp-ui-sideline-enable nil)
 
     (require 'lsp-ui-flycheck)
-    (add-hook 'lsp-after-open-hook (lambda () (lsp-ui-flycheck-enable 1))))
-
-  (use-package company-lsp
-    ;; :demand t
-    :init
-    (push 'company-lsp company-backends)))
+    (add-hook 'lsp-after-open-hook (lambda () (lsp-ui-flycheck-enable 1)))))
 
 (defun xy//enable-lsp (modes)
   (dolist (buf (buffer-list))

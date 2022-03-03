@@ -5,10 +5,6 @@
     "gs" 'magit-status
     "gp" 'magit-file-dispatch)
   :config
-  (use-package evil-magit
-    :demand t
-    :config
-    (require 'evil-magit))
   (magit-wip-mode t)
   (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
   (setq magit-last-seen-setup-instructions "1.4.0"))

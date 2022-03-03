@@ -28,11 +28,11 @@
       (package-refresh-contents))
     (package-install package)))
 
-(require 'cl)
+(require 'cl-lib)
 (defun xy//ensure-packages (packages)
   "Ensure that the specified list of packages are installed and loaded"
   (let ((pkgs (cl-map 'list (lambda (p) (cons p (package-installed-p p))) packages)))
-    (when (notevery #'cdr pkgs)
+    (when (cl-notevery #'cdr pkgs)
       (package-refresh-contents))
     (dolist (p pkgs)
       (unless (cdr p)
